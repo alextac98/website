@@ -1,27 +1,27 @@
 ---
 enable: true
-title: "What Users Are Saying About Astroplate"
-description: "Don't just take our word for it - hear from some of our satisfied users!  Check out some of our testimonials below to see what others are saying about Astroplate."
+title: "Experience & Achievements"
+description: "A snapshot of my journey through robotics, space systems, and engineering innovation."
 
 # Testimonials
 testimonials:
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
-    avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+  - name: "Inversion Space"
+    designation: "Lead Flight Software Engineer"
+    avatar: "/images/companies/inversion.png"
+    content: "Currently leading flight software development for spacecraft systems, building and launching satellites, and contributing to the future of space logistics."
 
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
-    avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+  - name: "SpaceX"
+    designation: "Software Engineer"
+    avatar: "/images/companies/spacex.png"
+    content: "Contributed to software systems supporting crewed missions and helped launch some of humanity's most ambitious space exploration efforts."
 
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
-    avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+  - name: "The Tonight Show"
+    designation: "GE Fallonventions"
+    avatar: "/images/companies/nbc.png"
+    content: "Featured on The Tonight Show starring Jimmy Fallon for Project Maverick, an omni-directional robotic mobility system designed to help people with walking disabilities."
 
-  - name: "Marvin McKinney"
-    designation: "Web Designer"
-    avatar: "/images/avatar-sm.png"
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui iusto illo molestias, assumenda expedita commodi inventore non itaque molestiae voluptatum dolore, facilis sapiente, repellat veniam."
+  - name: "Intel ISEF"
+    designation: "2nd Place - Engineering Mechanics"
+    avatar: "/images/companies/intel.png"
+    content: "Placed 2nd in Engineering Mechanics at the Intel International Science and Engineering Fair. Also received INCOSE Best in Show and had Minor Planet 33662 named Tacescu in my honor."
 ---

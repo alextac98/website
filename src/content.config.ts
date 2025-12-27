@@ -54,6 +54,38 @@ const pagesCollection = defineCollection({
   }),
 });
 
+// Projects collection schema
+const projectsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/projects" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    date: z.date().optional(),
+    image: z.string().optional(),
+    categories: z.array(z.string()).default(["others"]),
+    tags: z.array(z.string()).default(["others"]),
+    featured: z.boolean().optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+// Awards collection schema
+const awardsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/awards" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    date: z.date().optional(),
+    image: z.string().optional(),
+    categories: z.array(z.string()).default(["others"]),
+    tags: z.array(z.string()).default(["others"]),
+    featured: z.boolean().optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
 // about collection schema
 const aboutCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
@@ -149,6 +181,8 @@ export const collections = {
   pages: pagesCollection,
   about: aboutCollection,
   contact: contactCollection,
+  projects: projectsCollection,
+  awards: awardsCollection,
 
   // sections
   ctaSection: ctaSectionCollection,

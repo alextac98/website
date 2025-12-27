@@ -1,132 +1,122 @@
-<h1 align=center>Astro + Tailwind CSS + TypeScript Starter and Boilerplate</h1>
+# Alex Tacescu - Personal Website
 
-<p align=center>Astroplate is a free starter template built with Astro, TailwindCSS & TypeScript, providing everything you need to jumpstart your Astro project and save valuable time.</p>
+Personal website for Alex Tacescu, built with Astro, TailwindCSS, and TypeScript.
 
-<p align=center>Made with ♥ by <a href="https://zeon.studio/">Zeon Studio</a></p>
+🌐 **Live Site:** [alextac.com](https://alextac.com)
 
-<p align=center> If you find this project useful, please give it a ⭐ to show your support. </p>
+## About
 
-<h2 align="center"> <a target="_blank" href="https://astroplate.netlify.app/" rel="nofollow">👀 Demo</a> | <a target="_blank" href="https://astroplate-multilang.netlify.app/" rel="nofollow">👀 Demo Multilang</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-astroplate-netlify-app/yzx3foum3w?form_factor=desktop">Page Speed (100%)🚀</a>
-</h2>
+This website showcases my work as a Lead Flight Software Engineer at Inversion Space, with 14+ years of experience in robotics and 5+ years in the space industry. The site includes:
 
-<p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%405.15.9">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=5.15&color=000&logo=astro"  alt="Astro Version 5.15"/>
-  </a>
+- **Projects** - Showcasing robotics and software projects including Project Maverick, SmallKat, and more
+- **Awards** - Recognition including appearances on The Tonight Show, Intel ISEF awards, and NASA competitions
+- **Blog** - Technical articles on development tools, 3D printing, and operating systems
+- **About** - My background, experience, and journey in engineering
 
-  <a href="https://github.com/zeon-studio/astroplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zeon-studio/astroplate" alt="license"></a>
+## Tech Stack
 
-  <img src="https://img.shields.io/github/languages/code-size/zeon-studio/astroplate" alt="code size">
+- [Astro](https://astro.build/) - Static site generator
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [React](https://reactjs.org/) - For interactive components
+- [MDX](https://mdxjs.com/) - Markdown with JSX support
 
-  <a href="https://github.com/zeon-studio/astroplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zeon-studio/astroplate" alt="contributors"></a>
-</p>
+## Getting Started
 
-## 📌 Key Features
+### Prerequisites
 
-- 👥 Multi-Authors
-- 🌐 Multilingual
-- 🎯 Similar Posts Suggestion
-- 🔍 Search Functionality
-- 🌑 Dark Mode
-- 🏷️ Tags & Categories
-- 🔗 Netlify setting pre-configured
-- 📞 Support contact form
-- 📱 Fully responsive
-- 📝 Write and update content in Markdown / MDX
-- 📎 Google Tag Manager
-- 💬 Disqus Comment
-- 🔳 Syntax Highlighting
+- Node.js v20.10+
+- pnpm or npm
 
-### 📄 15+ Pre-designed Pages
-
-- 🏠 Homepage
-- 👤 About
-- 📞 Contact
-- 👥 Authors
-- 👤 Author Single
-- 📝 Blog
-- 📝 Blog Single
-- 🚫 Custom 404
-- 💡 Elements
-- 📄 Privacy Policy
-- 🏷️ Tags
-- 🏷️ Tag Single
-- 🗂️ Categories
-- 🗂️ Category Single
-- 🔍 Search
-
-## 🔗 Integrations
-
-- astro/react
-- astro/sitemap
-- astro/tailwind
-
-## 🚀 Getting Started
-
-### 📦 Dependencies
-
-- astro v5.15+
-- node v20.10+
-- yarn v1.22+
-- tailwind v4+
-
-### 👉 Install Dependencies
+### Installation
 
 ```bash
-yarn install
-```
-
-### 👉 Development Command
-
-```bash
-yarn run dev
-```
-
-### 👉 Build Command
-
-```bash
-yarn run build
-```
-
-### 👉 Build and Run With Docker
-
-```bash
-docker build -t astroplate .
+# Install dependencies
+pnpm install
 # or
-# docker --build-arg INSTALLER=npm build -t astroplate .
-# or
-# docker --build-arg INSTALLER=pnpm build -t astroplate .
+npm install
 
-docker run -p 3000:80 astroplate
+# Start development server
+pnpm run dev
 # or
-# docker run --rm -p 3000:80 astroplate
+npm run dev
+
+# Build for production
+pnpm run build
+# or
+npm run build
+
+# Preview production build
+pnpm run preview
+# or
+npm run preview
 ```
 
-To access the shell within the container:
+### Development Commands
 
 ```bash
-docker run -it --rm astroplate ash
+pnpm run dev      # Start dev server with hot reload
+pnpm run build    # Build for production
+pnpm run preview  # Preview production build
+pnpm run check    # Type check Astro files
+pnpm run format   # Format code with Prettier
+
+# Or use npm instead of pnpm for all commands
 ```
 
-<!-- reporting issue -->
+## Project Structure
 
-## 🐞 Reporting Issues
+```
+website/
+├── public/
+│   └── images/         # Static images
+├── src/
+│   ├── config/         # Site configuration (menu, social, etc.)
+│   ├── content/        # Content collections (blog, projects, awards)
+│   ├── layouts/        # Layout components
+│   ├── pages/          # Page routes
+│   └── styles/         # Global styles
+├── astro.config.mjs    # Astro configuration
+└── package.json
+```
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/zeon-studio/astroplate/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/zeon-studio/astroplate/issues).
+## Content Management
 
-<!-- licence -->
+Content is managed through Markdown/MDX files in the `src/content/` directory:
 
-## 📝 License
+- `blog/` - Blog posts
+- `projects/` - Project showcases
+- `awards/` - Award and recognition entries
+- `about/` - About page content
+- `homepage/` - Homepage content
 
-Copyright (c) 2023 - Present, Designed & Developed by [Zeon Studio](https://zeon.studio/)
+## Configuration
 
-**Code License:** Released under the [MIT](https://github.com/zeon-studio/astroplate/blob/main/LICENSE) license.
+Site configuration is stored in `src/config/`:
 
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+- `config.json` - Site metadata, settings, and SEO
+- `menu.json` - Navigation structure
+- `social.json` - Social media links
 
-## 💻 Need Custom Development Services?
+## Images
 
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://zeon.studio/).
+Images should be placed in `public/images/`. See `public/images/README.md` for a list of required images.
+
+## Deployment
+
+The site is configured for deployment on Netlify. See `netlify.toml` for configuration.
+
+## License
+
+MIT License - See [LICENSE](./LICENSE) for details.
+
+## Contact
+
+- **Twitter/X:** [@alextac98](https://twitter.com/alextac98)
+- **GitHub:** [alextac98](https://github.com/alextac98)
+- **LinkedIn:** [Alex Tacescu](https://www.linkedin.com/in/alex-tacescu/)
+- **YouTube:** [Alex Tacescu](https://www.youtube.com/alextacescu)
+
+---
+
+Built with ❤️ using [Astroplate](https://github.com/zeon-studio/astroplate) template by Zeon Studio

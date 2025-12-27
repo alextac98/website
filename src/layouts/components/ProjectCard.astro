@@ -1,0 +1,72 @@
+---
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, slugify } from "@/lib/utils/textConverter";
+import { FaRegFolder } from "react-icons/fa";
+import ImageMod from "./ImageMod.astro";
+
+interface Props {
+  data: {
+    id: string;
+    data: {
+      title: string;
+      image?: string;
+      date?: Date;
+      categories?: string[];
+      description?: string;
+      featured?: boolean;
+    };
+    body?: string;
+  };
+  basePath: string;
+}
+
+const { data, basePath } = Astro.props;
+const { title, image, date, categories, description, featured } = data.data;
+---
+
+<div class="bg-body dark:bg-darkmode-body">
+  {
+    image && (
+      <ImageMod
+        class="mb-6 w-full rounded"
+        src={image}
+        alt={title}
+        width={445}
+        height={230}
+        format="webp"
+      />
+    )
+  }
+  {
+    featured && (
+      <span class="mb-2 inline-block rounded bg-primary/10 px-2 py-1 text-xs font-medium text-primary dark:bg-darkmode-primary/10 dark:text-darkmode-primary">
+        Featured
+      </span>
+    )
+  }
+  <h4 class="mb-3">
+    <a href={`/${basePath}/${data.id}`}>
+      {title}
+    </a>
+  </h4>
+  <ul class="mb-4">
+    {
+      categories && categories.length > 0 && (
+        <li class="mr-4 inline-block">
+          <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
+          {categories.map((category: string, index: number) => (
+            <a href={`/categories/${slugify(category)}`}>
+              {humanize(category)}
+              {index !== categories.length - 1 && ","}
+            </a>
+          ))}
+        </li>
+      )
+    }
+    {date && <li class="inline-block">{dateFormat(date)}</li>}
+  </ul>
+  {description && <p class="mb-6">{description}</p>}
+  <a class="btn btn-outline-primary btn-sm" href={`/${basePath}/${data.id}`}>
+    read more
+  </a>
+</div>

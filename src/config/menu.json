@@ -5,53 +5,53 @@
       "url": "/"
     },
     {
-      "name": "About",
-      "url": "/about"
-    },
-    {
-      "name": "Elements",
-      "url": "/elements"
-    },
-    {
-      "name": "Pages",
+      "name": "About Me",
       "url": "",
       "hasChildren": true,
       "children": [
         {
-          "name": "Contact",
-          "url": "/contact"
+          "name": "About Me",
+          "url": "/about"
         },
         {
-          "name": "Blog",
-          "url": "/blog"
+          "name": "Resume",
+          "url": "/resume"
         },
         {
-          "name": "Authors",
-          "url": "/authors"
+          "name": "Projects",
+          "url": "/projects"
         },
         {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "404 Page",
-          "url": "/404"
+          "name": "Awards",
+          "url": "/awards"
         }
       ]
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
     }
   ],
   "footer": [
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "About",
+      "url": "/about"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "Projects",
+      "url": "/projects"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
     }
   ]
 }

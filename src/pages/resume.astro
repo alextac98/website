@@ -1,0 +1,58 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const title = "Resume";
+const meta_title = "Resume - Alex Tacescu";
+const description = "View Alex Tacescu's professional resume";
+---
+
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader title={title} />
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="mb-8 text-center">
+            <p class="mb-6 text-lg">
+              View or download my resume using the links below:
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a
+                href="https://github.com/alextac98/Resume/blob/master/AlexTacescuResume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                View on GitHub
+              </a>
+              <a
+                href="https://raw.githubusercontent.com/alextac98/Resume/master/AlexTacescuResume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary"
+              >
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-8 rounded-lg border border-border p-4 dark:border-darkmode-border">
+            <iframe
+              src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/alextac98/Resume/master/AlexTacescuResume.pdf&embedded=true"
+              class="h-[800px] w-full rounded"
+              title="Alex Tacescu Resume"
+            >
+            </iframe>
+          </div>
+
+          <div class="mt-8 text-center text-sm text-text-light dark:text-darkmode-text-light">
+            <p>
+              If the resume doesn't load above, please use the download link to view the PDF directly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

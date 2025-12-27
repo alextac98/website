@@ -1,0 +1,63 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import Base from "@/layouts/Base.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import PageHeader from "@/partials/PageHeader.astro";
+
+const PROJECTS_FOLDER = "projects";
+
+const projectIndex = await getListPage(PROJECTS_FOLDER, "-index");
+if (projectIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+
+const projects = await getSinglePage(PROJECTS_FOLDER);
+const sortedProjects = sortByDate(projects);
+---
+
+<Base
+  title={projectIndex.data.title}
+  meta_title={projectIndex.data.meta_title}
+  image={projectIndex.data.image}
+  description={projectIndex.data.description}
+>
+  <PageHeader title={projectIndex?.data.title} />
+  <section class="section">
+    <div class="container">
+      <!-- Featured Projects -->
+      {
+        sortedProjects.filter((p) => p.data.featured).length > 0 && (
+          <div class="mb-16">
+            <h2 class="mb-8 text-center text-2xl font-bold">
+              Featured Projects
+            </h2>
+            <div class="row">
+              {sortedProjects
+                .filter((project) => project.data.featured)
+                .map((project) => (
+                  <div class="mb-14 md:col-6 lg:col-4">
+                    <ProjectCard data={project} basePath="projects" />
+                  </div>
+                ))}
+            </div>
+          </div>
+        )
+      }
+
+      <!-- All Projects -->
+      <div>
+        <h2 class="mb-8 text-center text-2xl font-bold">All Projects</h2>
+        <div class="row">
+          {
+            sortedProjects.map((project) => (
+              <div class="mb-14 md:col-6 lg:col-4">
+                <ProjectCard data={project} basePath="projects" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
