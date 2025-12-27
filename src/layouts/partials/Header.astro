@@ -128,7 +128,13 @@ const { pathname } = Astro.url;
           </button>
         )
       }
-      <ThemeSwitcher className="mr-5" />
+      <div
+        transition:persist="theme-switcher"
+        transition:animate="none"
+        class="flex items-center"
+      >
+        <ThemeSwitcher className="mr-5" />
+      </div>
       <Social source={social.main} className="social-icons hidden lg:flex" />
     </div>
   </nav>

@@ -49,6 +49,23 @@ const { title, meta_title, description, image, noindex, canonical } =
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Inline script to set theme before any rendering to prevent flash -->
+    <script is:inline>
+      (function () {
+        const settings = { default_theme: "system" };
+        const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+        const defaultTheme =
+          settings.default_theme === "system"
+            ? matchMedia.matches
+              ? "dark"
+              : "light"
+            : settings.default_theme;
+        const theme = localStorage.getItem("theme") || defaultTheme;
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <!-- google tag manager -->
     {
       config.google_tag_manager.enable && (

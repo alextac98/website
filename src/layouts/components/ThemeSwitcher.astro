@@ -102,12 +102,16 @@ const { className }: { className?: string } = Astro.props;
 }
 
 <style is:global>
-  /* Track styling */
+  /* Track styling - transitions disabled initially */
   .theme-switcher-artsy .track {
     background: #87CEEB;
-    transition: background 0.4s ease;
+    transition: none;
     border: 1px solid white;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  }
+
+  .theme-switcher-artsy.transitions-enabled .track {
+    transition: background 0.4s ease;
   }
 
   .dark .theme-switcher-artsy .track {
@@ -117,6 +121,10 @@ const { className }: { className?: string } = Astro.props;
   /* Light mode decorations - visible by default, hidden in dark mode */
   .theme-switcher-artsy .light-side {
     opacity: 1;
+    transition: none;
+  }
+
+  .theme-switcher-artsy.transitions-enabled .light-side {
     transition: opacity 0.4s ease;
   }
 
@@ -127,6 +135,10 @@ const { className }: { className?: string } = Astro.props;
   /* Dark mode decorations - hidden by default, visible in dark mode */
   .theme-switcher-artsy .dark-side {
     opacity: 0;
+    transition: none;
+  }
+
+  .theme-switcher-artsy.transitions-enabled .dark-side {
     transition: opacity 0.4s ease;
   }
 
@@ -211,7 +223,6 @@ const { className }: { className?: string } = Astro.props;
     height: 8px;
     top: 5px;
     animation: drift-cloud 16s linear infinite;
-    animation-delay: 3s;
   }
 
   .theme-switcher-artsy .cloud-3 {
@@ -219,7 +230,6 @@ const { className }: { className?: string } = Astro.props;
     height: 7px;
     top: 16px;
     animation: drift-cloud 17s linear infinite;
-    animation-delay: 6s;
   }
 
   .theme-switcher-artsy .cloud-4 {
@@ -227,7 +237,6 @@ const { className }: { className?: string } = Astro.props;
     height: 9px;
     bottom: 8px;
     animation: drift-cloud 15s linear infinite;
-    animation-delay: 9s;
   }
 
   .theme-switcher-artsy .cloud-5 {
@@ -235,7 +244,6 @@ const { className }: { className?: string } = Astro.props;
     height: 8px;
     top: 11px;
     animation: drift-cloud 16s linear infinite;
-    animation-delay: 12s;
   }
 
   @keyframes drift-cloud {
@@ -342,23 +350,36 @@ const { className }: { className?: string } = Astro.props;
     animation-delay: 2s;
   }
 
-  /* Handle styling */
+  /* Handle styling - transition disabled initially to prevent animation on page load */
   .theme-switcher-artsy .handle {
     background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2), inset 0 -1px 2px rgba(0,0,0,0.1);
+    transition: none;
+  }
+
+  /* Enable transition after page load */
+  .theme-switcher-artsy.transitions-enabled .handle {
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .theme-switcher-artsy .sun-icon {
     opacity: 1;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: none;
     transform: rotate(0deg);
+  }
+
+  .theme-switcher-artsy.transitions-enabled .sun-icon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .theme-switcher-artsy .moon-icon {
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: none;
     transform: rotate(-90deg);
+  }
+
+  .theme-switcher-artsy.transitions-enabled .moon-icon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   /* Dark mode states */
@@ -429,6 +450,31 @@ const { className }: { className?: string } = Astro.props;
   import { settings } from "@/config/config.json";
   const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
+  // Cloud animation durations in seconds
+  const cloudAnimations = [
+    { selector: ".theme-switcher-artsy .cloud-1", duration: 18 },
+    { selector: ".theme-switcher-artsy .cloud-2", duration: 16 },
+    { selector: ".theme-switcher-artsy .cloud-3", duration: 17 },
+    { selector: ".theme-switcher-artsy .cloud-4", duration: 15 },
+    { selector: ".theme-switcher-artsy .cloud-5", duration: 16 },
+  ];
+
+  // Calculate and apply time-based animation offsets so clouds appear continuous
+  function syncCloudAnimations() {
+    const now = Date.now() / 1000; // Current time in seconds
+    cloudAnimations.forEach(({ selector, duration, delay = 0 }) => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach((el) => {
+        if (el instanceof Element && 'style' in el) {
+          // Calculate where in the animation cycle we should be
+          const offset = (now + delay) % duration;
+          // Use negative delay to "skip ahead" in the animation
+          (el as HTMLElement | SVGElement).style.animationDelay = `-${offset}s`;
+        }
+      });
+    });
+  }
+
   matchMedia.addEventListener("change", () =>
     toggleTheme(document.querySelectorAll("[data-theme-switcher]"))
   );
@@ -446,10 +492,29 @@ const { className }: { className?: string } = Astro.props;
     document.documentElement.classList.toggle("dark", isDarkTheme);
   }
 
+  function enableTransitions() {
+    // Enable transitions after a brief delay to ensure theme is set
+    // Skip if already enabled (for persisted elements during view transitions)
+    requestAnimationFrame(() => {
+      document.querySelectorAll(".theme-switcher-artsy").forEach((el) => {
+        if (!el.classList.contains("transitions-enabled")) {
+          el.classList.add("transitions-enabled");
+        }
+      });
+    });
+  }
+
   const setDarkMode = () => {
     const themeSwitch = document.querySelectorAll("[data-theme-switcher]");
     toggleTheme(themeSwitch);
+    // Enable transitions after theme is set
+    enableTransitions();
+    // Sync cloud animations to current time
+    syncCloudAnimations();
     themeSwitch.forEach((sw) => {
+      // Skip if already initialized (for persisted elements during view transitions)
+      if (sw.hasAttribute("data-initialized")) return;
+      sw.setAttribute("data-initialized", "true");
       sw.addEventListener("click", function () {
         const defaulTheme =
           settings.default_theme === "system"
