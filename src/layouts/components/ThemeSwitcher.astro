@@ -10,29 +10,86 @@ const { className }: { className?: string } = Astro.props;
 
 {
   theme_switcher && (
-    <div class={`theme-switcher ${className}`}>
-      <input id="theme-switcher" data-theme-switcher type="checkbox" />
-      <label for="theme-switcher">
+    <div class:list={["theme-switcher-artsy inline-flex", className]}>
+      <input id="theme-switcher" data-theme-switcher type="checkbox" class="absolute opacity-0" />
+      <label for="theme-switcher" class="relative inline-block cursor-pointer w-[75px] h-[35px]">
         <span class="sr-only">theme switcher</span>
-        <span>
+
+        <!-- Track background with decorations -->
+        <div class="track absolute inset-0 rounded-full overflow-hidden">
+          <!-- Light mode decorations - sun rays and clouds -->
+          <div class="light-side absolute inset-0 h-full w-full overflow-hidden">
+            <!-- Rays around the sun -->
+            <div class="rays-container">
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+            </div>
+            <!-- Clouds drifting across -->
+            <svg class="cloud cloud-1" viewBox="0 0 36 16" fill="white">
+              <!-- Wide fluffy cloud -->
+              <path d="M32 14H4a4 4 0 0 1 0-8 5 5 0 0 1 4-5 6 6 0 0 1 11 0 5 5 0 0 1 9 4 4 4 0 0 1 4 5z"/>
+            </svg>
+            <svg class="cloud cloud-2" viewBox="0 0 28 14" fill="white">
+              <!-- Smaller compact cloud -->
+              <path d="M24 12H4a4 4 0 0 1 0-8 4 4 0 0 1 7-2 5 5 0 0 1 9 2 4 4 0 0 1 4 4z"/>
+            </svg>
+            <svg class="cloud cloud-3" viewBox="0 0 32 12" fill="white">
+              <!-- Flat stretched cloud -->
+              <path d="M28 10H4a3 3 0 0 1 0-6 4 4 0 0 1 5-3 5 5 0 0 1 8 0 4 4 0 0 1 7 2 4 4 0 0 1 4 4z"/>
+            </svg>
+            <svg class="cloud cloud-4" viewBox="0 0 30 14" fill="white">
+              <!-- Bumpy tall cloud -->
+              <path d="M26 12H4a4 4 0 0 1 0-8 3 3 0 0 1 3-3 4 4 0 0 1 6 0 5 5 0 0 1 8 1 4 4 0 0 1 5 6z"/>
+            </svg>
+            <svg class="cloud cloud-5" viewBox="0 0 24 12" fill="white">
+              <!-- Small puffy cloud -->
+              <path d="M20 10H4a3 3 0 0 1 0-6 4 4 0 0 1 6-3 4 4 0 0 1 6 1 3 3 0 0 1 4 5z"/>
+            </svg>
+          </div>
+
+          <!-- Dark mode decorations - stars and night sky -->
+          <div class="dark-side absolute inset-0 h-full w-full overflow-hidden">
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+            <div class="shooting-star"></div>
+          </div>
+        </div>
+
+        <!-- Toggle handle with sun/moon -->
+        <span class="handle absolute flex items-center justify-center rounded-full w-[30px] h-[30px] top-[2.5px] left-[2.5px] z-10">
+          <!-- Sun icon -->
           <svg
-            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0"
+            class="sun-icon absolute"
             viewBox="0 0 56 56"
-            fill="#fff"
-            height="16"
-            width="16"
+            fill="#FDB813"
+            height="22"
+            width="22"
           >
             <path d="M30 4.6c0-1-.9-2-2-2a2 2 0 0 0-2 2v5c0 1 .9 2 2 2s2-1 2-2Zm9.6 9a2 2 0 0 0 0 2.8c.8.8 2 .8 2.9 0L46 13a2 2 0 0 0 0-2.9 2 2 0 0 0-3 0Zm-26 2.8c.7.8 2 .8 2.8 0 .8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9 0-.7.8-.7 2.1 0 3ZM28 16a12 12 0 0 0-12 12 12 12 0 0 0 12 12 12 12 0 0 0 12-12 12 12 0 0 0-12-12Zm23.3 14c1.1 0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 0 0-2 2c0 1.1 1 2 2 2ZM4.7 26a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2Zm37.8 13.6a2 2 0 0 0-3 0 2 2 0 0 0 0 2.9l3.6 3.5a2 2 0 0 0 2.9 0c.8-.8.8-2.1 0-3ZM10 43.1a2 2 0 0 0 0 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1 0-2.9-.8-.8-2-.8-2.9 0Zm20 3.4c0-1.1-.9-2-2-2a2 2 0 0 0-2 2v4.9c0 1 .9 2 2 2s2-1 2-2Z" />
           </svg>
+          <!-- Moon icon -->
           <svg
-            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100"
+            class="moon-icon absolute"
             viewBox="0 0 24 24"
             fill="none"
-            height="16"
-            width="16"
+            height="20"
+            width="20"
           >
             <path
-              fill="#000"
+              fill="#F5F3CE"
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4 0 0 0 8.7 1.8c1-.3 2 .5 1.5 1.5v.1a10.3 10.3 0 0 1-9.4 6.2A10.3 10.3 0 0 1 3.2 6.7c1-2 2.9-3.5 4.9-4.4Z"
@@ -43,6 +100,330 @@ const { className }: { className?: string } = Astro.props;
     </div>
   )
 }
+
+<style is:global>
+  /* Track styling */
+  .theme-switcher-artsy .track {
+    background: #87CEEB;
+    transition: background 0.4s ease;
+    border: 1px solid white;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  }
+
+  .dark .theme-switcher-artsy .track {
+    background: #1a1a2e;
+  }
+
+  /* Light mode decorations - visible by default, hidden in dark mode */
+  .theme-switcher-artsy .light-side {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+
+  .dark .theme-switcher-artsy .light-side {
+    opacity: 0;
+  }
+
+  /* Dark mode decorations - hidden by default, visible in dark mode */
+  .theme-switcher-artsy .dark-side {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .dark .theme-switcher-artsy .dark-side {
+    opacity: 1;
+  }
+
+  /* Sun rays container - centered on the sun handle */
+  .theme-switcher-artsy .rays-container {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 2.5px;
+    left: 2.5px;
+  }
+
+  /* Individual rays radiating outward from center */
+  .theme-switcher-artsy .ray {
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,220,100,0.9), rgba(255,200,50,0));
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+  }
+
+  /* Position each ray around the sun (every 30 degrees, closer to sun) */
+  .theme-switcher-artsy .ray:nth-child(1) {
+    transform: translateY(-50%) rotate(0deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(2) {
+    transform: translateY(-50%) rotate(30deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(3) {
+    transform: translateY(-50%) rotate(60deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(4) {
+    transform: translateY(-50%) rotate(90deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(5) {
+    transform: translateY(-50%) rotate(120deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(6) {
+    transform: translateY(-50%) rotate(150deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(7) {
+    transform: translateY(-50%) rotate(180deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(8) {
+    transform: translateY(-50%) rotate(210deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(9) {
+    transform: translateY(-50%) rotate(240deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(10) {
+    transform: translateY(-50%) rotate(270deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(11) {
+    transform: translateY(-50%) rotate(300deg) translateX(16px);
+  }
+  .theme-switcher-artsy .ray:nth-child(12) {
+    transform: translateY(-50%) rotate(330deg) translateX(16px);
+  }
+
+  /* Clouds - drifting across the sky */
+  .theme-switcher-artsy .cloud {
+    position: absolute;
+    opacity: 0.9;
+  }
+
+  .theme-switcher-artsy .cloud-1 {
+    width: 20px;
+    height: 10px;
+    bottom: 4px;
+    animation: drift-cloud-start 18s linear infinite;
+  }
+
+  .theme-switcher-artsy .cloud-2 {
+    width: 16px;
+    height: 8px;
+    top: 5px;
+    animation: drift-cloud 16s linear infinite;
+    animation-delay: 3s;
+  }
+
+  .theme-switcher-artsy .cloud-3 {
+    width: 14px;
+    height: 7px;
+    top: 16px;
+    animation: drift-cloud 17s linear infinite;
+    animation-delay: 6s;
+  }
+
+  .theme-switcher-artsy .cloud-4 {
+    width: 18px;
+    height: 9px;
+    bottom: 8px;
+    animation: drift-cloud 15s linear infinite;
+    animation-delay: 9s;
+  }
+
+  .theme-switcher-artsy .cloud-5 {
+    width: 15px;
+    height: 8px;
+    top: 11px;
+    animation: drift-cloud 16s linear infinite;
+    animation-delay: 12s;
+  }
+
+  @keyframes drift-cloud {
+    0% {
+      left: -20px;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: 80px;
+      opacity: 0;
+    }
+  }
+
+  @keyframes drift-cloud-start {
+    0% {
+      left: 40px;
+      opacity: 1;
+    }
+    48% {
+      opacity: 1;
+    }
+    50% {
+      left: 80px;
+      opacity: 0;
+    }
+    50.1% {
+      left: -20px;
+      opacity: 0;
+    }
+    55% {
+      opacity: 1;
+    }
+    100% {
+      left: 40px;
+      opacity: 1;
+    }
+  }
+
+  /* Stars */
+  .theme-switcher-artsy .star {
+    position: absolute;
+    background-color: white;
+    border-radius: 9999px;
+    animation: twinkle 1.5s ease-in-out infinite;
+  }
+
+  .theme-switcher-artsy .star-1 {
+    width: 3px;
+    height: 3px;
+    top: 8px;
+    left: 10px;
+    animation-delay: 0s;
+  }
+
+  .theme-switcher-artsy .star-2 {
+    width: 4px;
+    height: 4px;
+    top: 15px;
+    left: 35px;
+    animation-delay: 0.3s;
+  }
+
+  .theme-switcher-artsy .star-3 {
+    width: 3px;
+    height: 3px;
+    top: 25px;
+    left: 20px;
+    animation-delay: 0.6s;
+  }
+
+  .theme-switcher-artsy .star-4 {
+    width: 3px;
+    height: 3px;
+    top: 10px;
+    left: 56px;
+    animation-delay: 0.9s;
+  }
+
+  .theme-switcher-artsy .star-5 {
+    width: 2px;
+    height: 2px;
+    top: 22px;
+    left: 48px;
+    animation-delay: 1.2s;
+  }
+
+  /* Shooting star */
+  .theme-switcher-artsy .shooting-star {
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, white);
+    top: 25px;
+    left: 5px;
+    transform: rotate(-30deg);
+    opacity: 0;
+    animation: shoot 3s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  /* Handle styling */
+  .theme-switcher-artsy .handle {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2), inset 0 -1px 2px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .theme-switcher-artsy .sun-icon {
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: rotate(0deg);
+  }
+
+  .theme-switcher-artsy .moon-icon {
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: rotate(-90deg);
+  }
+
+  /* Dark mode states */
+  .dark .theme-switcher-artsy .handle {
+    left: 42.5px;
+    background: linear-gradient(135deg, #4a4a6a 0%, #2d2d44 100%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1);
+  }
+
+  .dark .theme-switcher-artsy .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+
+  .dark .theme-switcher-artsy .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  /* Animations */
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(0.8);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: translateY(-50%) scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(-50%) scale(1.1);
+    }
+  }
+
+  @keyframes shoot {
+    0%, 100% {
+      opacity: 0;
+      transform: rotate(-30deg) translateX(0);
+    }
+    10% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 0;
+      transform: rotate(-30deg) translateX(25px);
+    }
+  }
+
+  /* Hover effects */
+  .theme-switcher-artsy label:hover .handle {
+    transform: scale(1.05);
+  }
+
+  .theme-switcher-artsy label:active .handle {
+    transform: scale(0.95);
+  }
+</style>
 
 <script>
   import { settings } from "@/config/config.json";

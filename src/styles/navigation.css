@@ -42,25 +42,4 @@
   @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-semibold transition;
 }
 
-/* theme-switcher */
-.theme-switcher {
-  @apply inline-flex;
-
-  label {
-    @apply bg-border relative inline-block h-4 w-6 cursor-pointer rounded-2xl lg:w-10;
-  }
-
-  input {
-    @apply absolute opacity-0;
-  }
-
-  span {
-    @apply bg-dark absolute -top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full transition-all duration-300 dark:bg-white;
-  }
-
-  input:checked + label {
-    span {
-      @apply lg:left-4;
-    }
-  }
-}
+/* theme-switcher styles are now in ThemeSwitcher.astro component */
