@@ -1,14 +1,14 @@
 {
   "main": [
     {
-      "name": "x",
-      "icon": "FaXTwitter",
-      "link": "https://twitter.com/alextac98"
-    },
-    {
       "name": "github",
       "icon": "FaGithub",
       "link": "https://github.com/alextac98"
+    },
+    {
+      "name": "linkedin",
+      "icon": "FaLinkedin",
+      "link": "https://www.linkedin.com/in/alex-tacescu/"
     },
     {
       "name": "youtube",
@@ -16,9 +16,9 @@
       "link": "https://www.youtube.com/alextacescu"
     },
     {
-      "name": "linkedin",
-      "icon": "FaLinkedin",
-      "link": "https://www.linkedin.com/in/alex-tacescu/"
+      "name": "x",
+      "icon": "FaXTwitter",
+      "link": "https://twitter.com/alextac98"
     }
   ]
 }

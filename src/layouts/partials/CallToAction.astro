@@ -1,5 +1,7 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
+import Social from "@/components/Social.astro";
+import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
 const { call_to_action } = Astro.props;
 ---
@@ -29,13 +31,15 @@ const { call_to_action } = Astro.props;
                 set:html={markdownify(call_to_action.data.description)}
                 class="mb-6"
               />
-              {call_to_action.data.button.enable && (
+              {call_to_action.data.button.enable ? (
                 <a
                   class="btn btn-primary"
                   href={call_to_action.data.button.link}
                 >
                   {call_to_action.data.button.label}
                 </a>
+              ) : (
+                <Social source={social.main} className="social-icons" />
               )}
             </div>
           </div>

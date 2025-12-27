@@ -28,13 +28,10 @@
     "expire_days": 7
   },
 
-  "params": {
-    "contact_form_action": "#",
-    "copyright": "© 2025 Alex Tacescu. All Rights Reserved"
-  },
+  "params": {},
 
   "navigation_button": {
-    "enable": true,
+    "enable": false,
     "label": "Contact Me",
     "link": "/contact"
   },

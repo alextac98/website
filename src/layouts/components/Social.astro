@@ -18,6 +18,7 @@ export interface ISocial {
           href={social.link}
           target="_blank"
           rel="noopener noreferrer nofollow"
+          data-social={social.name}
         >
           <span class="sr-only">{social.name}</span>
           <DynamicIcon className="inline-block" icon={social.icon} />

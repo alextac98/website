@@ -20,10 +20,24 @@
   @apply inline-block;
 }
 .social-icons li a {
-  @apply flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-center leading-9 text-white dark:bg-darkmode-primary dark:text-text-dark;
+  @apply flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-center leading-9 text-white dark:bg-darkmode-primary dark:text-text-dark transition-colors duration-200;
 }
 .social-icons li a svg {
   @apply h-5 w-5;
+}
+
+/* Social media brand color hover states */
+.social-icons li a[aria-label="github"]:hover {
+  @apply bg-white text-[#181717] border border-[#181717] dark:bg-[#181717] dark:text-white dark:border-white;
+}
+.social-icons li a[aria-label="linkedin"]:hover {
+  @apply bg-[#0A66C2] dark:bg-[#0A66C2] dark:text-white;
+}
+.social-icons li a[aria-label="youtube"]:hover {
+  @apply bg-[#FF0000] dark:bg-[#FF0000] dark:text-white;
+}
+.social-icons li a[aria-label="x"]:hover {
+  @apply bg-white text-black border border-black dark:bg-black dark:text-white dark:border-white;
 }
 
 /* notice */

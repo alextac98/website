@@ -3,6 +3,8 @@ import Logo from "@/components/Logo.astro";
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
+import social from "@/config/social.json";
+import Social from "@/components/Social.astro";
 import { IoSearch } from "react-icons/io5";
 
 export interface ChildNavigationLink {
@@ -18,7 +20,7 @@ export interface NavigationLink {
 }
 
 const { main }: { main: NavigationLink[] } = menu;
-const { navigation_button, settings } = config;
+const { settings } = config;
 const { pathname } = Astro.url;
 ---
 
@@ -110,18 +112,9 @@ const { pathname } = Astro.url;
           </>
         ))
       }
-      {
-        navigation_button.enable && (
-          <li class="mt-4 inline-block lg:hidden">
-            <a
-              class="btn btn-outline-primary btn-sm"
-              href={navigation_button.link}
-            >
-              {navigation_button.label}
-            </a>
-          </li>
-        )
-      }
+      <li class="mt-4 inline-block lg:hidden">
+        <Social source={social.main} className="social-icons" />
+      </li>
     </ul>
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
       {
@@ -136,16 +129,7 @@ const { pathname } = Astro.url;
         )
       }
       <ThemeSwitcher className="mr-5" />
-      {
-        navigation_button.enable && (
-          <a
-            class="btn btn-outline-primary btn-sm hidden lg:inline-block"
-            href={navigation_button.link}
-          >
-            {navigation_button.label}
-          </a>
-        )
-      }
+      <Social source={social.main} className="social-icons hidden lg:flex" />
     </div>
   </nav>
 </header>

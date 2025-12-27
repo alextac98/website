@@ -30,10 +30,6 @@
     {
       "name": "Blog",
       "url": "/blog"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
     }
   ],
   "footer": [
@@ -48,10 +44,6 @@
     {
       "name": "Blog",
       "url": "/blog"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
     }
   ]
 }
