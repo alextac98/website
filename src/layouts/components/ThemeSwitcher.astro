@@ -209,6 +209,9 @@ const { className }: { className?: string } = Astro.props;
   .theme-switcher-artsy .cloud {
     position: absolute;
     opacity: 0.9;
+    left: 0;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
   }
 
   .theme-switcher-artsy .cloud-1 {
@@ -248,7 +251,7 @@ const { className }: { className?: string } = Astro.props;
 
   @keyframes drift-cloud {
     0% {
-      left: -20px;
+      transform: translate3d(-20px, 0, 0);
       opacity: 0;
     }
     10% {
@@ -258,32 +261,32 @@ const { className }: { className?: string } = Astro.props;
       opacity: 1;
     }
     100% {
-      left: 80px;
+      transform: translate3d(80px, 0, 0);
       opacity: 0;
     }
   }
 
   @keyframes drift-cloud-start {
     0% {
-      left: 40px;
+      transform: translate3d(40px, 0, 0);
       opacity: 1;
     }
     48% {
       opacity: 1;
     }
     50% {
-      left: 80px;
+      transform: translate3d(80px, 0, 0);
       opacity: 0;
     }
     50.1% {
-      left: -20px;
+      transform: translate3d(-20px, 0, 0);
       opacity: 0;
     }
     55% {
       opacity: 1;
     }
     100% {
-      left: 40px;
+      transform: translate3d(40px, 0, 0);
       opacity: 1;
     }
   }
