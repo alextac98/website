@@ -462,6 +462,18 @@ const { className }: { className?: string } = Astro.props;
     { selector: ".theme-switcher-artsy .cloud-5", duration: 16 },
   ];
 
+  // Star animation durations in seconds (twinkle is 1.5s, with staggered delays)
+  const starAnimations = [
+    { selector: ".theme-switcher-artsy .star-1", duration: 1.5, baseDelay: 0 },
+    { selector: ".theme-switcher-artsy .star-2", duration: 1.5, baseDelay: 0.3 },
+    { selector: ".theme-switcher-artsy .star-3", duration: 1.5, baseDelay: 0.6 },
+    { selector: ".theme-switcher-artsy .star-4", duration: 1.5, baseDelay: 0.9 },
+    { selector: ".theme-switcher-artsy .star-5", duration: 1.5, baseDelay: 1.2 },
+  ];
+
+  // Shooting star animation duration (3s cycle with 2s initial delay)
+  const shootingStarAnimation = { selector: ".theme-switcher-artsy .shooting-star", duration: 3, baseDelay: 2 };
+
   // Calculate and apply time-based animation offsets so clouds appear continuous
   function syncCloudAnimations() {
     const now = Date.now() / 1000; // Current time in seconds
@@ -475,6 +487,33 @@ const { className }: { className?: string } = Astro.props;
           (el as HTMLElement | SVGElement).style.animationDelay = `-${offset}s`;
         }
       });
+    });
+  }
+
+  // Calculate and apply time-based animation offsets for stars
+  function syncStarAnimations() {
+    const now = Date.now() / 1000; // Current time in seconds
+
+    // Sync twinkling stars
+    starAnimations.forEach(({ selector, duration, baseDelay }) => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach((el) => {
+        if (el instanceof Element && 'style' in el) {
+          // Calculate where in the animation cycle we should be, accounting for base delay
+          const offset = (now + baseDelay) % duration;
+          // Use negative delay to "skip ahead" in the animation
+          (el as HTMLElement | SVGElement).style.animationDelay = `-${offset}s`;
+        }
+      });
+    });
+
+    // Sync shooting star
+    const shootingStarElements = document.querySelectorAll(shootingStarAnimation.selector);
+    shootingStarElements.forEach((el) => {
+      if (el instanceof Element && 'style' in el) {
+        const offset = (now + shootingStarAnimation.baseDelay) % shootingStarAnimation.duration;
+        (el as HTMLElement | SVGElement).style.animationDelay = `-${offset}s`;
+      }
     });
   }
 
@@ -514,6 +553,8 @@ const { className }: { className?: string } = Astro.props;
     enableTransitions();
     // Sync cloud animations to current time
     syncCloudAnimations();
+    // Sync star animations to current time
+    syncStarAnimations();
     themeSwitch.forEach((sw) => {
       // Skip if already initialized (for persisted elements during view transitions)
       if (sw.hasAttribute("data-initialized")) return;

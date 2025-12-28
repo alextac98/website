@@ -7,6 +7,7 @@ import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
 
 const { footer }: { footer: { name: string; url: string }[] } = menu;
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class="bg-light dark:bg-darkmode-light">
@@ -26,13 +27,8 @@ const { footer }: { footer: { name: string; url: string }[] } = menu;
       class="container text-center text-text-light dark:text-darkmode-text-light"
     >
       <p>
-        © <span id="copyright-year"></span> Alex Tacescu
+        © {currentYear} Alex Tacescu
       </p>
     </div>
-    <script>
-      document.getElementById("copyright-year")!.textContent = String(
-        new Date().getFullYear(),
-      );
-    </script>
   </div>
 </footer>

@@ -88,7 +88,7 @@ const awardsCollection = defineCollection({
 
 // about collection schema
 const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about-me" }),
   schema: z.object({
     ...commonFields,
   }),
@@ -171,7 +171,7 @@ export const collections = {
   blog: blogCollection,
   authors: authorsCollection,
   pages: pagesCollection,
-  about: aboutCollection,
+  "about-me": aboutCollection,
   projects: projectsCollection,
   awards: awardsCollection,
 
