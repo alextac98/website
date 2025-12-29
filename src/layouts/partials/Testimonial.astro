@@ -7,7 +7,26 @@ import {
   SwiperSlide,
   SwiperWrapper,
 } from "astro-swiper";
-import type { SwiperOptions } from "swiper/types";
+interface SwiperOptions {
+  spaceBetween?: number;
+  loop?: boolean;
+  autoplay?: {
+    delay: number;
+    disableOnInteraction: boolean;
+  };
+  pagination?: {
+    el: string;
+    type: "bullets" | "fraction" | "progressbar" | "custom";
+    clickable: boolean;
+    dynamicBullets: boolean;
+  };
+  breakpoints?: Record<
+    number,
+    {
+      slidesPerView: number;
+    }
+  >;
+}
 
 const { testimonial } = Astro.props;
 

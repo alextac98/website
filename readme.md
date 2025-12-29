@@ -1,8 +1,8 @@
 # Alex Tacescu - Personal Website
 
-Personal website for Alex Tacescu, built with Astro, TailwindCSS, and TypeScript.
+My personal website, project showcase, and blog! Built with Astro, TailwindCSS, and TypeScript.
 
-🌐 **Live Site:** [alextac.com](https://alextac.com)
+**Live Site:** [alextac.com](https://alextac.com)
 
 ## About
 
@@ -28,30 +28,6 @@ This website showcases my work as a Lead Flight Software Engineer at Inversion S
 - Node.js v20.10+
 - pnpm or npm
 
-### Installation
-
-```bash
-# Install dependencies
-pnpm install
-# or
-npm install
-
-# Start development server
-pnpm run dev
-# or
-npm run dev
-
-# Build for production
-pnpm run build
-# or
-npm run build
-
-# Preview production build
-pnpm run preview
-# or
-npm run preview
-```
-
 ### Development Commands
 
 ```bash
@@ -60,6 +36,7 @@ pnpm run build    # Build for production
 pnpm run preview  # Preview production build
 pnpm run check    # Type check Astro files
 pnpm run format   # Format code with Prettier
+pnpm install    # Install dependencies
 
 # Or use npm instead of pnpm for all commands
 ```
@@ -98,14 +75,6 @@ Site configuration is stored in `src/config/`:
 - `menu.json` - Navigation structure
 - `social.json` - Social media links
 
-## Images
-
-Images should be placed in `public/images/`. See `public/images/README.md` for a list of required images.
-
-## Deployment
-
-The site is configured for deployment on Netlify. See `netlify.toml` for configuration.
-
 ## License
 
 MIT License - See [LICENSE](./LICENSE) for details.
@@ -116,7 +85,3 @@ MIT License - See [LICENSE](./LICENSE) for details.
 - **GitHub:** [alextac98](https://github.com/alextac98)
 - **LinkedIn:** [Alex Tacescu](https://www.linkedin.com/in/alex-tacescu/)
 - **YouTube:** [Alex Tacescu](https://www.youtube.com/alextacescu)
-
----
-
-Built with ❤️ using [Astroplate](https://github.com/zeon-studio/astroplate) template by Zeon Studio

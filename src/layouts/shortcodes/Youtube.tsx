@@ -13,8 +13,8 @@ const Youtube = ({
     import("@justinribeiro/lite-youtube");
   }, []);
 
-  // @ts-ignore
   return (
+    // @ts-ignore - lite-youtube is a custom element imported dynamically
     <lite-youtube
       className="rounded-lg"
       videoid={id}
