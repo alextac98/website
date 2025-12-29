@@ -62,23 +62,25 @@ const { banner, mosaic, aboutme, features } = homepage.data;
           <div class="row items-start">
             <!-- Long Text -->
             <div class="mb-6 md:mb-0 md:col-6">
-              <p set:html={markdownify(aboutme.long)} />
-              {
-                aboutme.button.enable && (
-                  <a
-                    class="btn btn-primary mt-4"
-                    href={aboutme.button.link}
-                    target={
-                      aboutme.button.link.startsWith("http")
-                        ? "_blank"
-                        : "_self"
-                    }
-                    rel="noopener"
-                  >
-                    {aboutme.button.label}
-                  </a>
-                )
-              }
+               <p set:html={markdownify(aboutme.long)} />
+                {
+                  aboutme.button.enable && (
+                    <div class="flex justify-center mt-4">
+                      <a
+                        class="btn btn-primary"
+                        href={aboutme.button.link}
+                        target={
+                          aboutme.button.link.startsWith("http")
+                            ? "_blank"
+                            : "_self"
+                        }
+                        rel="noopener"
+                      >
+                        {aboutme.button.label}
+                      </a>
+                    </div>
+                  )
+                }
             </div>
 
             <!-- Video -->
