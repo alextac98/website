@@ -1,5 +1,6 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
+import CategoryMosaic from "@/components/CategoryMosaic.astro";
 import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -11,52 +12,112 @@ const homepage = await getListPage("homepage", "-index");
 const call_to_action = await getListPage("ctaSection", "call-to-action");
 const testimonial = await getListPage("testimonialSection", "testimonial");
 
-const { banner, features } = homepage.data;
+const { banner, mosaic, aboutme, features } = homepage.data;
 ---
 
 <Base>
-  <!-- Banner -->
-  <section class="section pt-14">
+  <!-- Category Mosaic -->
+  <section class="pt-8">
     <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-7 md:col-9 mb-8 text-center">
-          <h1
-            set:html={markdownify(banner.title)}
-            class="mb-4 text-h3 lg:text-h1"
-          />
-          <p set:html={markdownify(banner.content)} class="mb-8" />
+      <CategoryMosaic
+        categories={mosaic.categories}
+        columns={mosaic.columns}
+        rows={mosaic.rows}
+        rowHeight={mosaic.rowHeight}
+        animationDuration={mosaic.animationDuration}
+      />
+    </div>
+  </section>
+  <!-- /Category Mosaic -->
+
+  <!-- About Me -->
+  <section class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row items-stretch justify-between">
+        <!-- Left Column: Image (spans full height) -->
+        <div class="mb-8 md:mb-0 md:col-4">
           {
-            banner.button.enable && (
-              <a
-                class="btn btn-primary"
-                href={banner.button.link}
-                target={
-                  banner.button.link.startsWith("http") ? "_blank" : "_self"
-                }
-                rel="noopener"
-              >
-                {banner.button.label}
-              </a>
+            aboutme.image && (
+              <ImageMod
+                src={aboutme.image}
+                height={600}
+                width={400}
+                alt="Alex Tacescu"
+                format="webp"
+                class="rounded-lg w-full h-full object-cover"
+              />
             )
           }
         </div>
-        {
-          banner.image && (
-            <div class="col-12">
-              <ImageMod
-                src={banner.image}
-                height={380}
-                width={1200}
-                alt="banner"
-                format="webp"
-              />
+
+        <!-- Right Column: Stacked content -->
+        <div class="md:col-8">
+          <!-- Top: Title + Short Text -->
+          <div class="mb-6">
+            <h2 set:html={markdownify(aboutme.title)} class="mb-4" />
+            <p set:html={markdownify(aboutme.short)} />
+          </div>
+
+          <!-- Bottom: Long Text + Video side by side -->
+          <div class="row items-start">
+            <!-- Long Text -->
+            <div class="mb-6 md:mb-0 md:col-6">
+              <p set:html={markdownify(aboutme.long)} />
+              {
+                aboutme.button.enable && (
+                  <a
+                    class="btn btn-primary mt-4"
+                    href={aboutme.button.link}
+                    target={
+                      aboutme.button.link.startsWith("http")
+                        ? "_blank"
+                        : "_self"
+                    }
+                    rel="noopener"
+                  >
+                    {aboutme.button.label}
+                  </a>
+                )
+              }
             </div>
-          )
-        }
+
+            <!-- Video -->
+            {
+              aboutme.video?.enable && (
+                <div class="md:col-6">
+                  <h4 class="mb-4">
+                    <a href={aboutme.video.fallback_url}>
+                      {aboutme.video.title}
+                    </a>
+                  </h4>
+                   <video
+                    controls
+                    class="w-full rounded-lg shadow-lg object-cover"
+                    poster={aboutme.video.thumbnail}
+                    preload="metadata"
+                  >
+                    <source src={aboutme.video.url} type="video/mp4" />
+                    <p>
+                      Your browser doesn't support HTML5 video.{" "}
+                      <a
+                        href={aboutme.video.fallback_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-primary hover:underline"
+                      >
+                        Watch it on NBC.com instead.
+                      </a>
+                    </p>
+                  </video>
+                </div>
+              )
+            }
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <!-- /Banner -->
+  <!-- /About Me -->
 
   <!-- Features -->
   {
