@@ -2,7 +2,7 @@
 title: "About Me"
 meta_title: "About Alex Tacescu"
 description: "Learn more about Alex Tacescu - Lead Flight Software Engineer, Robotics Engineer, and Space Systems Developer"
-image: "/images/alex-profile.png"
+image: "/images/awards/tonight-show.jpg"
 draft: false
 ---
 

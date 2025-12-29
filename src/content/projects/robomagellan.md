@@ -34,6 +34,7 @@ As part of the WPI Robotics team, we designed and built a robot capable of:
 ## Technical Implementation
 
 ### Hardware
+
 - Rugged outdoor chassis with all-terrain wheels
 - GPS module for localization
 - Camera system for cone detection
@@ -41,6 +42,7 @@ As part of the WPI Robotics team, we designed and built a robot capable of:
 - Onboard computer for processing
 
 ### Software
+
 - ROS (Robot Operating System) for system integration
 - OpenCV for computer vision and cone detection
 - Custom path planning algorithms

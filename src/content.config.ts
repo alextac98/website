@@ -101,26 +101,92 @@ const homepageCollection = defineCollection({
     banner: z.object({
       title: z.string(),
       content: z.string(),
-      image: z.string(),
       button: z.object({
         enable: z.boolean(),
         label: z.string(),
         link: z.string(),
       }),
     }),
-    features: z.array(
-      z.object({
-        title: z.string(),
-        image: z.string(),
-        content: z.string(),
-        bulletpoints: z.array(z.string()),
-        button: z.object({
-          enable: z.boolean(),
-          label: z.string(),
+    mosaic: z.object({
+      columns: z.number().default(12),
+      rows: z.number().default(2),
+      rowHeight: z.number().default(100),
+      animationDuration: z.number().default(0.25),
+      categories: z.array(
+        z.object({
+          title: z.string(),
+          image: z.string(),
           link: z.string(),
+          colSpan: z.number().optional(),
+          rowSpan: z.number().optional(),
         }),
+      ),
+    }),
+    aboutme: z.object({
+      title: z.string(),
+      short: z.string(),
+      image: z.string().optional(),
+      long: z.string(),
+      video: z
+        .object({
+          enable: z.boolean(),
+          title: z.string(),
+          url: z.string(),
+          thumbnail: z.string().optional(),
+          fallback_url: z.string().optional(),
+        })
+        .optional(),
+      button: z.object({
+        enable: z.boolean(),
+        label: z.string(),
+        link: z.string(),
       }),
-    ),
+    }),
+    features: z
+      .array(
+        z.object({
+          title: z.string(),
+          image: z.string(),
+          content: z.string(),
+          bulletpoints: z.array(z.string()),
+          button: z.object({
+            enable: z.boolean(),
+            label: z.string(),
+            link: z.string(),
+          }),
+        }),
+      )
+      .optional(),
+    featured_projects: z
+      .object({
+        enable: z.boolean(),
+        title: z.string(),
+        description: z.string(),
+        count: z.number().default(3),
+        button: z
+          .object({
+            enable: z.boolean(),
+            label: z.string(),
+            link: z.string(),
+          })
+          .optional(),
+      })
+      .optional(),
+    recent_posts: z
+      .object({
+        enable: z.boolean(),
+        title: z.string(),
+        description: z.string(),
+        count: z.number().default(3),
+        button: z
+          .object({
+            enable: z.boolean(),
+            label: z.string(),
+            link: z.string(),
+          })
+          .optional(),
+      })
+      .optional(),
   }),
 });
 

@@ -31,6 +31,7 @@ As the **Engineering Team Leader** of FRC Team 2761, I was responsible for:
 My time on FRC Team 2761 taught me invaluable skills:
 
 ### Technical Skills
+
 - Mechanical design and fabrication
 - CAD modeling and prototyping
 - Electrical systems design
@@ -38,6 +39,7 @@ My time on FRC Team 2761 taught me invaluable skills:
 - Project management under pressure
 
 ### Soft Skills
+
 - Team leadership and collaboration
 - Communication and presentation
 - Problem-solving under constraints

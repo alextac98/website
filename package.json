@@ -1,6 +1,6 @@
 {
   "name": "alextac.com",
-  "version": "5.11.0",
+  "version": "5.13",
   "description": "Alex Tacescu's Personal Website",
   "author": "alextac98@gmail.com",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"pnpm generate-json && astro dev\"",
     "build": "node scripts/themeGenerator.js && pnpm generate-json && astro build",
-    "preview": "astro preview",
+    "preview": "astro preview --host",
     "check": "astro check",
     "format": "prettier -w ./src",
     "generate-json": "node scripts/jsonGenerator.js",

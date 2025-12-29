@@ -44,22 +44,25 @@ The system was built using:
 - **Frontend**: Interactive touch-screen interface with intuitive UX
 - **Backend**: Graph-based pathfinding algorithms
 - **Database**: Hospital floor plans and point-of-interest data
-- **Pathfinding**: A* algorithm for optimal route calculation
+- **Pathfinding**: A\* algorithm for optimal route calculation
 - **Accessibility**: Support for wheelchair-accessible routes
 
 ## Key Features
 
 ### Interactive Maps
+
 - Zoomable, pannable floor plans
 - Clear visual representation of routes
 - Landmark indicators for easier navigation
 
 ### Smart Routing
+
 - Shortest path calculation
 - Accessible route options
 - Multi-floor navigation with elevator/stair guidance
 
 ### User-Friendly Interface
+
 - Large, easy-to-read text
 - Touch-friendly buttons
 - Multiple language support

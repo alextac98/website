@@ -5,7 +5,7 @@ description: "A curated list of essential VS Code extensions for software develo
 date: 2021-02-07
 image: "/images/blog/vscode-extensions.jpg"
 author: "Alex Tacescu"
-categories: ["Operating Systems"]
+categories: ["Software"]
 tags: ["VS Code", "Development", "Tools"]
 draft: false
 ---
@@ -14,7 +14,7 @@ Microsoft's Visual Studio Code (VS Code) has quickly become my favorite IDE and 
 
 However, stock VS Code is rather useless, and Microsoft has done this on purpose to mold your text editor in your style using extensions. Therefore, here are my top favorite VS Code Extensions I have installed on every computer I own and develop.
 
-*Note: This list is subject to change as I modify my preferences with VS Code. It serves as a list of extensions to install on a new computer for me. Honorable mentions are cool extensions I have found that I don't usually use or have installed, but I thought may be useful for readers who come across this post.*
+_Note: This list is subject to change as I modify my preferences with VS Code. It serves as a list of extensions to install on a new computer for me. Honorable mentions are cool extensions I have found that I don't usually use or have installed, but I thought may be useful for readers who come across this post._
 
 ## C/C++
 

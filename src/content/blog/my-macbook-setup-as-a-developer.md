@@ -1,14 +1,16 @@
 ---
-title: "My Macbook Setup – As a Developer"
+title: "My Macbook Setup – As a Software Developer"
 meta_title: "My Macbook Setup - Alex Tacescu"
 description: "A comprehensive guide to my development setup on macOS, including applications, tools, and must-have settings"
 date: 2025-07-11
 image: "/images/blog/macbook-setup.jpg"
 author: "Alex Tacescu"
-categories: ["Operating Systems", "MacOS"]
+categories: ["Software"]
 tags: ["MacOS", "Development", "Tools"]
 draft: false
 ---
+
+As a software developer, having a well-configured development environment is crucial for productivity and efficiency. Over the years, I've refined my Macbook setup to include a selection of applications, tools, and settings that enhance my workflow. Since my friends and co-workers keep asking how I set everything up, I've decided to document it here for easy reference.
 
 ## Applications
 

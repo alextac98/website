@@ -37,6 +37,7 @@ One of the best upgrades you can make is adding OctoPrint for remote monitoring 
 [Using OctoPrint with the Creality Ender 3](https://howchoo.com/g/ntg5yzg1odk/using-octoprint-with-the-creality-ender-3-3d-printer)
 
 With OctoPrint, you can:
+
 - Monitor prints remotely via webcam
 - Start and stop prints from your phone or computer
 - Track print progress and time remaining
@@ -61,6 +62,7 @@ The first layer is critical. Make sure it's squished enough to adhere but not so
 ### Print Settings
 
 Start with proven settings before experimenting:
+
 - **PLA**: 200°C nozzle, 60°C bed
 - **Layer Height**: 0.2mm for normal prints, 0.12mm for detailed prints
 - **Print Speed**: 50mm/s is a safe starting point

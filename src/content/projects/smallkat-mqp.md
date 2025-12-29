@@ -33,6 +33,7 @@ To allow for a multitude of gait designs, SmallKat is designed with 4-DoF legs c
 ## Electronics
 
 Custom Microelectronics designed for this project:
+
 - Motor Controller
 - Custom foot sensors
 - Charger
@@ -41,6 +42,7 @@ Custom Microelectronics designed for this project:
 - IMU
 
 **Communication Stack:**
+
 - Receives updates wirelessly
 - Calculates IK of the robot
 - Updates joint angles

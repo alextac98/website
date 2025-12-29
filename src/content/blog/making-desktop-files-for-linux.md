@@ -5,7 +5,7 @@ description: "A quick guide on creating custom .desktop files to add programs to
 date: 2020-06-10
 image: "/images/blog/linux-desktop.jpg"
 author: "Alex Tacescu"
-categories: ["Operating Systems", "Linux"]
+categories: ["Software"]
 tags: [".desktop", "Linux", "Ubuntu"]
 draft: false
 ---

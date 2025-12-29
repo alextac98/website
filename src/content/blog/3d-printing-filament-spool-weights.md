@@ -20,10 +20,10 @@ When you're in the middle of a long print, knowing exactly how much filament you
 
 The table below will be compiled with more data as I obtain it! If you would like to contribute, drop a comment below!
 
-| Brand | Filament Type | Spool Size | Full Spool Weight (lbs) | Empty Spool Weight (lbs) |
-|-------|---------------|------------|------------------------|-------------------------|
-| Eryone | PLA (White) | 1kg | N/A | N/A |
-| Hatchbox | PLA (Black) | 1kg | 2.253 | - |
+| Brand    | Filament Type | Spool Size | Full Spool Weight (lbs) | Empty Spool Weight (lbs) |
+| -------- | ------------- | ---------- | ----------------------- | ------------------------ |
+| Eryone   | PLA (White)   | 1kg        | N/A                     | N/A                      |
+| Hatchbox | PLA (Black)   | 1kg        | 2.253                   | -                        |
 
 ## How to Use This Table
 
@@ -34,6 +34,7 @@ The table below will be compiled with more data as I obtain it! If you would lik
 ## Contributing
 
 If you have data from spools you've used, please share in the comments! Include:
+
 - Brand name
 - Filament type and color
 - Spool size (1kg, 500g, etc.)
