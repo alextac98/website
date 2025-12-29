@@ -24,17 +24,17 @@ mosaic:
       rowSpan: 3
     - title: "Robotics"
       image: "/images/robotics.jpg"
-      link: "/categories/robotics"
+      link: "projects/smallkat-mqp"
       colSpan: 7
       rowSpan: 3
     - title: "Aerospace"
       image: "/images/companies/Inversion/Ray-OnOrbit.jpg"
-      link: "/categories/aerospace"
+      link: "https://inversionspace.com"
       colSpan: 4
       rowSpan: 4
     - title: "Software & AI"
       image: "/images/software.png"
-      link: "/categories/software-ai"
+      link: "/categories/software"
       colSpan: 4
       rowSpan: 4
     - title: "CAD & 3D Printing"
