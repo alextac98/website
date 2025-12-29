@@ -39,7 +39,7 @@ const {
   style={`--mosaic-columns: ${columns}; --mosaic-rows: ${rows}; --row-height: ${rowHeight}px; --animation-duration: ${animationDuration}s`}
 >
   {
-    categories.map((category, index) => (
+    categories.map((category) => (
       <a
         href={category.link}
         class="mosaic-item"
@@ -316,11 +316,8 @@ const {
       const overlay = element.querySelector("[data-overlay]") as HTMLElement;
       if (!overlay) return;
 
-      let lastDirection: "top" | "bottom" | "left" | "right" = "top";
-
       element.addEventListener("mouseenter", (event: MouseEvent) => {
         const direction = getDirection(element, event);
-        lastDirection = direction;
 
         clearAnimationClasses(overlay);
         element.classList.add("is-hovered");

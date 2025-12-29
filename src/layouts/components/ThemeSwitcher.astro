@@ -11,66 +11,62 @@ const { className }: { className?: string } = Astro.props;
 {
   theme_switcher && (
     <div class:list={["theme-switcher-artsy inline-flex", className]}>
-      <input id="theme-switcher" data-theme-switcher type="checkbox" class="absolute opacity-0" />
-      <label for="theme-switcher" class="relative inline-block cursor-pointer w-[75px] h-[35px]">
+      <input
+        id="theme-switcher"
+        data-theme-switcher
+        type="checkbox"
+        class="absolute opacity-0"
+      />
+      <label
+        for="theme-switcher"
+        class="relative inline-block cursor-pointer w-[75px] h-[35px]"
+      >
         <span class="sr-only">theme switcher</span>
 
-        <!-- Track background with decorations -->
         <div class="track absolute inset-0 rounded-full overflow-hidden">
-          <!-- Light mode decorations - sun rays and clouds -->
           <div class="light-side absolute inset-0 h-full w-full overflow-hidden">
-            <!-- Rays around the sun -->
             <div class="rays-container">
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
-              <div class="ray"></div>
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
+              <div class="ray" />
             </div>
-            <!-- Clouds drifting across -->
             <svg class="cloud cloud-1" viewBox="0 0 36 16" fill="white">
-              <!-- Wide fluffy cloud -->
-              <path d="M32 14H4a4 4 0 0 1 0-8 5 5 0 0 1 4-5 6 6 0 0 1 11 0 5 5 0 0 1 9 4 4 4 0 0 1 4 5z"/>
+              <path d="M32 14H4a4 4 0 0 1 0-8 5 5 0 0 1 4-5 6 6 0 0 1 11 0 5 5 0 0 1 9 4 4 4 0 0 1 4 5z" />
             </svg>
             <svg class="cloud cloud-2" viewBox="0 0 28 14" fill="white">
-              <!-- Smaller compact cloud -->
-              <path d="M24 12H4a4 4 0 0 1 0-8 4 4 0 0 1 7-2 5 5 0 0 1 9 2 4 4 0 0 1 4 4z"/>
+              <path d="M24 12H4a4 4 0 0 1 0-8 4 4 0 0 1 7-2 5 5 0 0 1 9 2 4 4 0 0 1 4 4z" />
             </svg>
             <svg class="cloud cloud-3" viewBox="0 0 32 12" fill="white">
-              <!-- Flat stretched cloud -->
-              <path d="M28 10H4a3 3 0 0 1 0-6 4 4 0 0 1 5-3 5 5 0 0 1 8 0 4 4 0 0 1 7 2 4 4 0 0 1 4 4z"/>
+              <path d="M28 10H4a3 3 0 0 1 0-6 4 4 0 0 1 5-3 5 5 0 0 1 8 0 4 4 0 0 1 7 2 4 4 0 0 1 4 4z" />
             </svg>
             <svg class="cloud cloud-4" viewBox="0 0 30 14" fill="white">
-              <!-- Bumpy tall cloud -->
-              <path d="M26 12H4a4 4 0 0 1 0-8 3 3 0 0 1 3-3 4 4 0 0 1 6 0 5 5 0 0 1 8 1 4 4 0 0 1 5 6z"/>
+              <path d="M26 12H4a4 4 0 0 1 0-8 3 3 0 0 1 3-3 4 4 0 0 1 6 0 5 5 0 0 1 8 1 4 4 0 0 1 5 6z" />
             </svg>
             <svg class="cloud cloud-5" viewBox="0 0 24 12" fill="white">
-              <!-- Small puffy cloud -->
-              <path d="M20 10H4a3 3 0 0 1 0-6 4 4 0 0 1 6-3 4 4 0 0 1 6 1 3 3 0 0 1 4 5z"/>
+              <path d="M20 10H4a3 3 0 0 1 0-6 4 4 0 0 1 6-3 4 4 0 0 1 6 1 3 3 0 0 1 4 5z" />
             </svg>
           </div>
 
-          <!-- Dark mode decorations - stars and night sky -->
           <div class="dark-side absolute inset-0 h-full w-full overflow-hidden">
-            <div class="star star-1"></div>
-            <div class="star star-2"></div>
-            <div class="star star-3"></div>
-            <div class="star star-4"></div>
-            <div class="star star-5"></div>
-            <div class="shooting-star"></div>
+            <div class="star star-1" />
+            <div class="star star-2" />
+            <div class="star star-3" />
+            <div class="star star-4" />
+            <div class="star star-5" />
+            <div class="shooting-star" />
           </div>
         </div>
 
-        <!-- Toggle handle with sun/moon -->
         <span class="handle absolute flex items-center justify-center rounded-full w-[30px] h-[30px] top-[2.5px] left-[2.5px] z-10">
-          <!-- Sun icon -->
           <svg
             class="sun-icon absolute"
             viewBox="0 0 56 56"
@@ -80,7 +76,6 @@ const { className }: { className?: string } = Astro.props;
           >
             <path d="M30 4.6c0-1-.9-2-2-2a2 2 0 0 0-2 2v5c0 1 .9 2 2 2s2-1 2-2Zm9.6 9a2 2 0 0 0 0 2.8c.8.8 2 .8 2.9 0L46 13a2 2 0 0 0 0-2.9 2 2 0 0 0-3 0Zm-26 2.8c.7.8 2 .8 2.8 0 .8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9 0-.7.8-.7 2.1 0 3ZM28 16a12 12 0 0 0-12 12 12 12 0 0 0 12 12 12 12 0 0 0 12-12 12 12 0 0 0-12-12Zm23.3 14c1.1 0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 0 0-2 2c0 1.1 1 2 2 2ZM4.7 26a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2Zm37.8 13.6a2 2 0 0 0-3 0 2 2 0 0 0 0 2.9l3.6 3.5a2 2 0 0 0 2.9 0c.8-.8.8-2.1 0-3ZM10 43.1a2 2 0 0 0 0 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1 0-2.9-.8-.8-2-.8-2.9 0Zm20 3.4c0-1.1-.9-2-2-2a2 2 0 0 0-2 2v4.9c0 1 .9 2 2 2s2-1 2-2Z" />
           </svg>
-          <!-- Moon icon -->
           <svg
             class="moon-icon absolute"
             viewBox="0 0 24 24"
@@ -104,10 +99,10 @@ const { className }: { className?: string } = Astro.props;
 <style is:global>
   /* Track styling - transitions disabled initially */
   .theme-switcher-artsy .track {
-    background: #87CEEB;
+    background: #87ceeb;
     transition: none;
     border: 1px solid white;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   }
 
   .theme-switcher-artsy.transitions-enabled .track {
@@ -160,7 +155,11 @@ const { className }: { className?: string } = Astro.props;
     position: absolute;
     width: 6px;
     height: 2px;
-    background: linear-gradient(90deg, rgba(255,220,100,0.9), rgba(255,200,50,0));
+    background: linear-gradient(
+      90deg,
+      rgba(255, 220, 100, 0.9),
+      rgba(255, 200, 50, 0)
+    );
     border-radius: 2px;
     top: 50%;
     left: 50%;
@@ -355,8 +354,10 @@ const { className }: { className?: string } = Astro.props;
 
   /* Handle styling - transition disabled initially to prevent animation on page load */
   .theme-switcher-artsy .handle {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2), inset 0 -1px 2px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+    box-shadow:
+      0 2px 5px rgba(0, 0, 0, 0.2),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.1);
     transition: none;
   }
 
@@ -372,7 +373,9 @@ const { className }: { className?: string } = Astro.props;
   }
 
   .theme-switcher-artsy.transitions-enabled .sun-icon {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
 
   .theme-switcher-artsy .moon-icon {
@@ -382,14 +385,18 @@ const { className }: { className?: string } = Astro.props;
   }
 
   .theme-switcher-artsy.transitions-enabled .moon-icon {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
   }
 
   /* Dark mode states */
   .dark .theme-switcher-artsy .handle {
     left: 42.5px;
     background: linear-gradient(135deg, #4a4a6a 0%, #2d2d44 100%);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1);
+    box-shadow:
+      0 2px 5px rgba(0, 0, 0, 0.3),
+      inset 0 1px 2px rgba(255, 255, 255, 0.1);
   }
 
   .dark .theme-switcher-artsy .sun-icon {
@@ -404,7 +411,8 @@ const { className }: { className?: string } = Astro.props;
 
   /* Animations */
   @keyframes twinkle {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
       transform: scale(1);
     }
@@ -415,7 +423,8 @@ const { className }: { className?: string } = Astro.props;
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.6;
       transform: translateY(-50%) scale(1);
     }
@@ -426,7 +435,8 @@ const { className }: { className?: string } = Astro.props;
   }
 
   @keyframes shoot {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0;
       transform: rotate(-30deg) translateX(0);
     }
@@ -465,24 +475,44 @@ const { className }: { className?: string } = Astro.props;
   // Star animation durations in seconds (twinkle is 1.5s, with staggered delays)
   const starAnimations = [
     { selector: ".theme-switcher-artsy .star-1", duration: 1.5, baseDelay: 0 },
-    { selector: ".theme-switcher-artsy .star-2", duration: 1.5, baseDelay: 0.3 },
-    { selector: ".theme-switcher-artsy .star-3", duration: 1.5, baseDelay: 0.6 },
-    { selector: ".theme-switcher-artsy .star-4", duration: 1.5, baseDelay: 0.9 },
-    { selector: ".theme-switcher-artsy .star-5", duration: 1.5, baseDelay: 1.2 },
+    {
+      selector: ".theme-switcher-artsy .star-2",
+      duration: 1.5,
+      baseDelay: 0.3,
+    },
+    {
+      selector: ".theme-switcher-artsy .star-3",
+      duration: 1.5,
+      baseDelay: 0.6,
+    },
+    {
+      selector: ".theme-switcher-artsy .star-4",
+      duration: 1.5,
+      baseDelay: 0.9,
+    },
+    {
+      selector: ".theme-switcher-artsy .star-5",
+      duration: 1.5,
+      baseDelay: 1.2,
+    },
   ];
 
   // Shooting star animation duration (3s cycle with 2s initial delay)
-  const shootingStarAnimation = { selector: ".theme-switcher-artsy .shooting-star", duration: 3, baseDelay: 2 };
+  const shootingStarAnimation = {
+    selector: ".theme-switcher-artsy .shooting-star",
+    duration: 3,
+    baseDelay: 2,
+  };
 
   // Calculate and apply time-based animation offsets so clouds appear continuous
   function syncCloudAnimations() {
     const now = Date.now() / 1000; // Current time in seconds
-    cloudAnimations.forEach(({ selector, duration, delay = 0 }) => {
+    cloudAnimations.forEach(({ selector, duration }) => {
       const elements = document.querySelectorAll(selector);
       elements.forEach((el) => {
-        if (el instanceof Element && 'style' in el) {
+        if (el instanceof Element && "style" in el) {
           // Calculate where in the animation cycle we should be
-          const offset = (now + delay) % duration;
+          const offset = now % duration;
           // Use negative delay to "skip ahead" in the animation
           (el as HTMLElement | SVGElement).style.animationDelay = `-${offset}s`;
         }
@@ -498,7 +528,7 @@ const { className }: { className?: string } = Astro.props;
     starAnimations.forEach(({ selector, duration, baseDelay }) => {
       const elements = document.querySelectorAll(selector);
       elements.forEach((el) => {
-        if (el instanceof Element && 'style' in el) {
+        if (el instanceof Element && "style" in el) {
           // Calculate where in the animation cycle we should be, accounting for base delay
           const offset = (now + baseDelay) % duration;
           // Use negative delay to "skip ahead" in the animation
@@ -508,17 +538,21 @@ const { className }: { className?: string } = Astro.props;
     });
 
     // Sync shooting star
-    const shootingStarElements = document.querySelectorAll(shootingStarAnimation.selector);
+    const shootingStarElements = document.querySelectorAll(
+      shootingStarAnimation.selector,
+    );
     shootingStarElements.forEach((el) => {
-      if (el instanceof Element && 'style' in el) {
-        const offset = (now + shootingStarAnimation.baseDelay) % shootingStarAnimation.duration;
+      if (el instanceof Element && "style" in el) {
+        const offset =
+          (now + shootingStarAnimation.baseDelay) %
+          shootingStarAnimation.duration;
         (el as HTMLElement | SVGElement).style.animationDelay = `-${offset}s`;
       }
     });
   }
 
   matchMedia.addEventListener("change", () =>
-    toggleTheme(document.querySelectorAll("[data-theme-switcher]"))
+    toggleTheme(document.querySelectorAll("[data-theme-switcher]")),
   );
 
   function toggleTheme(themeSwitch: NodeListOf<Element>) {
