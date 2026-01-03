@@ -1,0 +1,100 @@
+---
+title: "SmallKat MQP"
+meta_title: "SmallKat MQP - Alex Tacescu"
+description: "A quadrupedal robotic platform to help research and design new gaits, test sensors, and teach engineering students"
+date: 2019-04-19
+image: "/images/projects/SmallKat/SmallKat.jpg"
+show_image: false
+categories: ["Robotics", "Personal Projects"]
+tags: ["SmallKat MQP", "Major Project", "WPI"]
+featured: true
+draft: false
+---
+
+The SmallKat MQP is providing a quadrupedal robotic platform to help research and design new gaits, test sensors, and teach engineering students. Current options limit small companies, universities, and hobbyists due to their complexity, large size, and immense cost. SmallKat is a low-cost robotic platform with customizability and adaptability in mind.
+
+## Overview
+
+To allow for a multitude of gait designs, SmallKat is designed with 4-DoF legs controlled by powerful custom servo motors, 9-DoF IMUs, and custom microcontrollers. The body is constructed using additive manufacturing with PLA plastics, and even has a continuum tail for added body control. The higher-level controller runs on a single-board computer for added performance when computing kinematics and dynamics, and controlling different gaits.
+
+## Mechanical Design
+
+<div class="flex justify-center">
+  <iframe
+    src="https://gmail4949966.autodesk360.com/shares/public/SH30dd5QT870c25f12fce3aed3b37cc5e29d?mode=embed"
+    allowfullscreen="true"
+    webkitallowfullscreen="true"
+    mozallowfullscreen="true"
+    frameborder="0"
+    class="w-2/3 aspect-video"
+  ></iframe>
+</div>
+
+- **4-DoF Legs** powered by JX HV-5932MG for adaptability & maneuverability
+  - Low cost ($30), high torque (32kg-cm stall), & simple communication system
+  - Other options considered: Dynamixel AX-12a & XH430
+
+- **Continuum Tail**: 20 links, controlled by 4 braided fishing lines
+  - 4 Maxon motors control the movement of the tail by tightening or loosening the string
+  - 2 motors control the first half of the tail, other 2 motors control the second half
+
+- **Polyurethane Feet** add an increased coefficient of friction with the ground
+  - Feet have integrated pressure sensors for force measurements
+  - 3D printed molds created to attach polyurethane to the feet
+
+## Electronics
+
+<div class="flex flex-col md:flex-row gap-6 items-start">
+  <div class="md:w-1/2">
+    <ImageMod
+      src="/images/projects/SmallKat/SmallKatMQP_Electronics.jpg"
+      alt="SmallKat Electronics"
+      class="w-full rounded"
+    />
+    <ImageMod
+      src="/images/projects/SmallKat/SmallKatMQP_Comms.jpg"
+      alt="SmallKat Communication Stack"
+      class="w-full rounded mt-4"
+    />
+  </div>
+  <div class="md:w-1/2">
+    <p>Custom Microelectronics designed for this project:</p>
+    <ul>
+      <li>Motor Controller</li>
+      <li>Custom foot sensors</li>
+      <li>Charger</li>
+      <li>Motherboard</li>
+      <li>Tail Driver and Controller</li>
+      <li>IMU</li>
+    </ul>
+    <p>
+      <strong>Communication Stack:</strong>
+    </p>
+    <ul>
+      <li>Receives updates wirelessly</li>
+      <li>Calculates IK of the robot</li>
+      <li>Updates joint angles</li>
+      <li>
+        Returns joint angles, IMU data, foot sensor data, and battery voltage
+      </li>
+    </ul>
+  </div>
+</div>
+
+## Software
+
+Raspberry Pi 3 B+ connected to the microcontroller via HID over USBBowler Studio & Bowler Kernel for development environment & simulationBowler Kernel: underlying kernel, runs headless on the Raspberry Pi 3. Forward kinematics & some dynamics are integrated in Bowler Studio. We developed inverse kinematics software for position control using Geometric approach. We developed a basic walking gait with a Central Pattern Generator (CPG) for trajectory generation. Dynamics were calculated using the Wide Stability Margin and a CPG for trajectory generation.
+
+<ImageMod
+  src="/images/projects/SmallKat/SmallKatMQP_Bowler.png"
+  alt="SmallKat Software Stack"
+  class="w-full rounded mt-4"
+/>
+
+## Future Work
+
+Future revisions of SmallKat could look to advance the basic gaits that were developed and add new sensors like a 3D camera.
+
+## Resources
+
+- [SmallKat on GitHub](https://github.com/alextac98)

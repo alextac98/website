@@ -113,30 +113,21 @@ const { mosaic, aboutme, featured_projects, recent_posts } = homepage.data;
             {
               aboutme.video?.enable && (
                 <div class="md:col-6">
-                  <h4 class="mb-4">
+                  <h4 class="mb-2">
                     <a href={aboutme.video.fallback_url}>
                       {aboutme.video.title}
                     </a>
                   </h4>
-                  <video
-                    controls
-                    class="w-full rounded-lg shadow-lg object-cover"
-                    poster={aboutme.video.thumbnail}
-                    preload="metadata"
-                  >
-                    <source src={aboutme.video.url} type="video/mp4" />
-                    <p>
-                      Your browser doesn't support HTML5 video.{" "}
-                      <a
-                        href={aboutme.video.fallback_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-primary hover:underline"
-                      >
-                        Watch it on NBC.com instead.
-                      </a>
-                    </p>
-                  </video>
+                  <div class="relative w-full" style="padding-bottom: 56.25%;">
+                    <iframe
+                      title="vimeo-player"
+                      src="https://player.vimeo.com/video/240866723?h=a7d9446a87"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                      allowfullscreen
+                      class="absolute inset-0 w-full h-full rounded-lg shadow-lg"
+                    />
+                  </div>
                 </div>
               )
             }

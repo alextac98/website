@@ -29,6 +29,8 @@ export default defineConfig({
         "@/shortcodes/Tabs",
         "@/shortcodes/Tab",
         "@/shortcodes/FloatImage",
+        "@/shortcodes/ImageGallery.astro",
+        "@/components/ImageMod.astro",
       ],
     }),
     mdx(),

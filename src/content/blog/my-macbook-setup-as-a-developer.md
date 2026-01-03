@@ -3,7 +3,7 @@ title: "My Macbook Setup – As a Software Developer"
 meta_title: "My Macbook Setup - Alex Tacescu"
 description: "A comprehensive guide to my development setup on macOS, including applications, tools, and must-have settings"
 date: 2025-07-11
-image: "/images/blog/macbook-setup.jpg"
+# image: "/images/blog/macbook-setup.jpg"
 author: "Alex Tacescu"
 categories: ["Software"]
 tags: ["MacOS", "Development", "Tools"]
@@ -32,7 +32,9 @@ Not sure if this needs any introduction, but it's one of the first thing I alway
 
 I really just want two things out of my browser: vertical tabs and for it to be a browser. It feels like these days, so many browsers are just pushing you to use or do non-browser things such as use their AI tool or their web3 wallet. Zen Browser is just a breath of fresh air. Not only are they simple and don't force you into tools that you don't want to use, but they are innovating on functionality that genuinely improve your web browsing experience! Things like `cmd+shift+c` to copy the URL or `option/alt + click` to open things in a temporary window make my experience much better.
 
-[https://github.com/zen-browser/desktop/discussions/3397](https://github.com/zen-browser/desktop/discussions/3397)
+[https://zen-browser.app/](https://github.com/zen-browser/desktop/discussions/3397)
+
+Honorary mention goes to Helium Browser, which is looking like the chrome alternative to Zen. It's still in early development, but looks promising, and I'm using it as my web development browser for the Chrome dev tools. [https://helium.computer/](https://helium.computer/)
 
 ### Editor of Choice: Zed + VS Code
 

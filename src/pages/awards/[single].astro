@@ -1,6 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
+import dateFormat from "@/lib/utils/dateFormat";
 import { markdownify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
 import type { GetStaticPaths } from "astro";
@@ -21,8 +22,16 @@ interface Props {
 
 const { award } = Astro.props;
 const { Content } = await render(award);
-const { title, meta_title, description, image, date, categories, tags } =
-  award.data;
+const {
+  title,
+  meta_title,
+  description,
+  image,
+  date,
+  categories,
+  tags,
+  show_image,
+} = award.data;
 ---
 
 <Base
@@ -36,7 +45,7 @@ const { title, meta_title, description, image, date, categories, tags } =
       <div class="row justify-center">
         <article class="lg:col-10">
           {
-            image && (
+            image && show_image && (
               <div class="mb-10">
                 <ImageMod
                   src={image}
@@ -55,17 +64,7 @@ const { title, meta_title, description, image, date, categories, tags } =
           <div
             class="mb-6 flex flex-wrap items-center gap-4 text-sm text-text-light dark:text-darkmode-text-light"
           >
-            {
-              date && (
-                <span>
-                  {new Date(date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-              )
-            }
+            {date && <span>{dateFormat(date, "MMMM d, yyyy")}</span>}
 
             {
               categories && categories.length > 0 && (

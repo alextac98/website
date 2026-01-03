@@ -7,56 +7,9 @@ image: "/images/projects/robomagellan.jpg"
 categories: ["Robotics", "Personal Projects"]
 tags: ["RoboMagellan", "WPI"]
 featured: false
-draft: false
+draft: true
 ---
 
-This robot competed in the RoboMagellan competition at the 2018 RoboGames in California.
+This robot competed in the RoboMagellan competition at the 2018 RoboGames in California. The robot was designed to autonomously find cones based on approximate GPS coordinates and report them back to a command module.
 
-## What is RoboMagellan?
-
-RoboMagellan is an autonomous robotics competition where robots must navigate outdoor terrain to reach designated waypoints marked by orange traffic cones. The challenge tests a robot's ability to:
-
-- Navigate autonomously through outdoor environments
-- Detect and avoid obstacles
-- Identify and approach traffic cones using computer vision
-- Handle varying terrain and weather conditions
-- Operate without human intervention
-
-## Our Robot
-
-As part of the WPI Robotics team, we designed and built a robot capable of:
-
-- **GPS Navigation**: Using GPS waypoints for high-level path planning
-- **Computer Vision**: Detecting orange cones using camera-based perception
-- **Obstacle Avoidance**: Using LIDAR and ultrasonic sensors to avoid obstacles
-- **Terrain Handling**: Robust drivetrain capable of handling grass, gravel, and uneven surfaces
-
-## Technical Implementation
-
-### Hardware
-
-- Rugged outdoor chassis with all-terrain wheels
-- GPS module for localization
-- Camera system for cone detection
-- LIDAR for obstacle detection
-- Onboard computer for processing
-
-### Software
-
-- ROS (Robot Operating System) for system integration
-- OpenCV for computer vision and cone detection
-- Custom path planning algorithms
-- Sensor fusion for improved localization
-
-## Competition
-
-We competed at the 2018 RoboGames in California, one of the world's largest open robot competitions. The RoboMagellan event challenges teams from around the world to demonstrate autonomous outdoor navigation capabilities.
-
-## Lessons Learned
-
-This project provided valuable experience in:
-
-- Outdoor autonomous navigation challenges
-- Sensor integration and fusion
-- Real-world testing and iteration
-- Competition preparation and teamwork
+There were three parts to the robot: the base, the navigation, and the cone finding. For simplicity, the base used was the [Dagu Wild Thumper](https://www.pololu.com/product/1554) with added encoders on each wheel. A [Teensy 3.5](https://www.sparkfun.com/products/14055) (soon-to-be an ESP-32 Thing from Sparkfun) was used as a controller for the motors and the basic sensors. PID and other control loops were running on this microcontroller. Connected via Serial over USB was an [NVidia Jetson TX2](https://developer.nvidia.com/embedded/buy/jetson-tx2), a small but powerful single-board computer. We selected this to run the navigation and cone-finding algorithms. The current robot uses a stereo camera to create a 3D map of its surroundings. It can avoid people and other obstacles while navigating to cones. To find those cones, an artificial intelligence algorithm analyzed incoming pictures and created a waypoint for the robot to go to.

@@ -3,10 +3,10 @@ title: "Ender 3 Upgrades + Tips/Tricks"
 meta_title: "Ender 3 Upgrades and Tips - Alex Tacescu"
 description: "A collection of useful upgrades, modifications, and tips for the Creality Ender 3 3D printer"
 date: 2020-04-05
-image: "/images/blog/ender-3.jpg"
+# image: "/images/blog/ender-3.jpg"
 author: "Alex Tacescu"
 categories: ["3D Printing"]
-tags: ["3D Printing", "Ender 3", "Upgrades"]
+tags: ["Creality Ender3"]
 draft: false
 ---
 

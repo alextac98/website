@@ -19,6 +19,7 @@ const blogCollection = defineCollection({
     description: z.string().optional(),
     date: z.date().optional(),
     image: z.string().optional(),
+    show_image: z.boolean().default(true),
     author: z.string().default("Alex Tacescu"),
     categories: z.array(z.string()).default(["others"]),
     tags: z.array(z.string()).default(["others"]),
@@ -43,6 +44,7 @@ const projectsCollection = defineCollection({
     description: z.string().optional(),
     date: z.date().optional(),
     image: z.string().optional(),
+    show_image: z.boolean().default(true),
     categories: z.array(z.string()).default(["others"]),
     tags: z.array(z.string()).default(["others"]),
     featured: z.boolean().optional(),
@@ -59,6 +61,7 @@ const awardsCollection = defineCollection({
     description: z.string().optional(),
     date: z.date().optional(),
     image: z.string().optional(),
+    show_image: z.boolean().default(true),
     categories: z.array(z.string()).default(["others"]),
     tags: z.array(z.string()).default(["others"]),
     featured: z.boolean().optional(),
@@ -71,6 +74,7 @@ const aboutCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about-me" }),
   schema: z.object({
     ...commonFields,
+    show_image: z.boolean().default(true),
   }),
 });
 
@@ -111,7 +115,6 @@ const homepageCollection = defineCollection({
         .object({
           enable: z.boolean(),
           title: z.string(),
-          url: z.string(),
           thumbnail: z.string().optional(),
           fallback_url: z.string().optional(),
         })
