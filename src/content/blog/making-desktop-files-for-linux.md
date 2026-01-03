@@ -3,10 +3,10 @@ title: "Making .desktop Files for Linux"
 meta_title: "Making .desktop Files for Linux - Alex Tacescu"
 description: "A quick guide on creating custom .desktop files to add programs to your Linux launcher"
 date: 2020-06-10
-image: "/images/blog/linux-desktop.jpg"
+# image: "/images/blog/linux-desktop.jpg"
 author: "Alex Tacescu"
 categories: ["Software"]
-tags: [".desktop", "Linux", "Ubuntu"]
+tags: ["Linux", "Ubuntu"]
 draft: false
 ---
 

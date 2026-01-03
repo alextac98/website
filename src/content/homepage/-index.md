@@ -51,8 +51,6 @@ aboutme:
   video:
     enable: true
     title: "Watch me on the Tonight Show!"
-    url: "https://assets.alextac.com/videos/Tonight-Show-Segment.mp4"
-    thumbnail: "/images/awards/tonight-show.jpg"
     fallback_url: "https://www.nbc.com/the-tonight-show/video/ge-fallonventions-project-maverick/3017453"
   button:
     enable: true

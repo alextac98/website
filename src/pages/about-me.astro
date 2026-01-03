@@ -7,7 +7,7 @@ import { render } from "astro:content";
 
 const aboutIndex = await getListPage("about-me", "-index");
 const { Content } = await render(aboutIndex);
-const { title, description, meta_title, image } = aboutIndex.data;
+const { title, description, meta_title, image, show_image } = aboutIndex.data;
 
 if (aboutIndex.data.draft) {
   return Astro.redirect("/404");
@@ -25,7 +25,7 @@ if (aboutIndex.data.draft) {
       <div class="row justify-center">
         <div class="text-center md:col-10 lg:col-7">
           {
-            image && (
+            image && show_image !== false && (
               <ImageMod
                 class="mx-auto mb-6 rounded-lg"
                 src={image}
