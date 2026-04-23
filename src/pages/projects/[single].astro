@@ -22,8 +22,19 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, meta_title, description, image, date, categories, tags, show_image } =
-  project.data;
+const {
+  title,
+  meta_title,
+  description,
+  image,
+  dark_image,
+  date,
+  categories,
+  tags,
+  show_image,
+} = project.data;
+
+const imageWrapperClass = "mx-auto mb-10 w-full md:w-1/2";
 ---
 
 <Base
@@ -36,33 +47,12 @@ const { title, meta_title, description, image, date, categories, tags, show_imag
     <div class="container">
       <div class="row justify-center">
         <article class="lg:col-10">
-          {
-            image && show_image && (
-              <div class="mb-10">
-                <ImageMod
-                  src={image}
-                  height={500}
-                  width={1200}
-                  alt={title}
-                  class="w-full rounded-lg"
-                  format="webp"
-                />
-              </div>
-            )
-          }
-
           <h1 set:html={markdownify(title)} class="h2 mb-4" />
 
           <div
             class="mb-6 flex flex-wrap items-center gap-4 text-sm text-text-light dark:text-darkmode-text-light"
           >
-            {
-              date && (
-                <span>
-                  {dateFormat(date, "MMMM d, yyyy")}
-                </span>
-              )
-            }
+            {date && <span>{dateFormat(date, "MMMM d, yyyy")}</span>}
 
             {
               categories && categories.length > 0 && (
@@ -88,6 +78,22 @@ const { title, meta_title, description, image, date, categories, tags, show_imag
                     #{tag}
                   </a>
                 ))}
+              </div>
+            )
+          }
+
+          {
+            image && show_image && (
+              <div class={imageWrapperClass}>
+                <ImageMod
+                  src={image}
+                  darkSrc={dark_image}
+                  height={500}
+                  width={1200}
+                  alt={title}
+                  class="w-full rounded-lg"
+                  format="webp"
+                />
               </div>
             )
           }
