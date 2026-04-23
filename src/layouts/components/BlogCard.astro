@@ -11,48 +11,63 @@ const {
 }: { summary_length: number; blog_folder: string } = config.settings;
 const { data } = Astro.props;
 const { title, image, date, author, categories } = data.data;
+const href = `/${blog_folder}/${data.id}`;
 ---
 
-<div class="bg-body dark:bg-darkmode-body">
-  {
-    image && (
-      <ImageMod
-        class="mb-6 w-full rounded"
-        src={image}
-        alt={title}
-        width={445}
-        height={230}
-        format="webp"
-      />
-    )
-  }
-  <h4 class="mb-3">
-    <a href={`/${blog_folder}/${data.id}`}>
-      {title}
-    </a>
-  </h4>
-  <ul class="mb-4">
-    <li class="mr-4 inline-block">
-      <a href="/about-me">
-        <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
-        {humanize(author)}
+<article
+  class="group relative h-full rounded-lg bg-body p-3 transition duration-200 hover:ring-2 hover:ring-primary/40 hover:ring-offset-4 hover:ring-offset-body focus-within:ring-2 focus-within:ring-primary/40 focus-within:ring-offset-4 focus-within:ring-offset-body dark:bg-darkmode-body dark:hover:ring-darkmode-primary/40 dark:hover:ring-offset-darkmode-body dark:focus-within:ring-darkmode-primary/40 dark:focus-within:ring-offset-darkmode-body"
+>
+  <a class="absolute inset-0 z-10 rounded-lg" href={href} aria-label={title}
+  ></a>
+  <div class="relative z-20 pointer-events-none">
+    {
+      image && (
+        <div class="mb-6 aspect-square overflow-hidden rounded">
+          <ImageMod
+            class="h-full w-full object-cover"
+            src={image}
+            alt={title}
+            width={445}
+            height={445}
+            format="webp"
+          />
+        </div>
+      )
+    }
+    <h4 class="mb-3">
+      <a class="relative z-30 pointer-events-auto" href={href}>
+        {title}
       </a>
-    </li>
-    <li class="mr-4 inline-block">
-      <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
-      {
-        categories.map((category: string, index: number) => (
-          <a href={`/categories/${slugify(category)}`}>
-            {humanize(category)}
-            {index !== categories.length - 1 && ","}
-          </a>
-        ))
-      }
-    </li>
-    {date && <li class="inline-block">{dateFormat(date)}</li>}
-  </ul>
-  <p class="mb-6">{plainify(data.body?.slice(0, Number(summary_length)))}</p>
-  <a class="btn btn-outline-primary btn-sm" href={`/${blog_folder}/${data.id}`}>
-    read more
-  </a>
-</div>
+    </h4>
+    <ul class="mb-4">
+      <li class="mr-4 inline-block">
+        <a class="relative z-30 pointer-events-auto" href="/about-me">
+          <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+          {humanize(author)}
+        </a>
+      </li>
+      <li class="mr-4 inline-block">
+        <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
+        {
+          categories.map((category: string, index: number) => (
+            <a
+              class="relative z-30 pointer-events-auto"
+              href={`/categories/${slugify(category)}`}
+            >
+              {humanize(category)}
+              {index !== categories.length - 1 && ","}
+            </a>
+          ))
+        }
+      </li>
+      {date && <li class="inline-block">{dateFormat(date)}</li>}
+    </ul>
+    <p class="mb-6">{plainify(data.body?.slice(0, Number(summary_length)))}</p>
+    <a
+      class="btn btn-outline-primary btn-sm relative z-30 pointer-events-auto"
+      href={href}
+    >
+      read more
+    </a>
+  </div>
+</article>
