@@ -16,7 +16,16 @@ const { post } = Astro.props;
 const posts = await getSinglePage(COLLECTION_FOLDER);
 const similarPosts = similarItems(post, posts);
 const { Content } = await render(post);
-const { title, description, author, categories, image, date, tags, show_image } = post.data;
+const {
+  title,
+  description,
+  author,
+  categories,
+  image,
+  date,
+  tags,
+  show_image,
+} = post.data;
 ---
 
 <section class="section pt-7">

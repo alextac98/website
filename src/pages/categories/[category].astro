@@ -1,16 +1,22 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { getTaxonomy } from "@/lib/taxonomyParser.astro";
-import { sortByDate } from "@/lib/utils/sortFunctions";
 import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import PageHeader from "@/partials/PageHeader.astro";
 
 // get static paths for all categories
 export async function getStaticPaths() {
   const BLOG_FOLDER = "blog";
-  const categories = await getTaxonomy(BLOG_FOLDER, "categories");
+  const PROJECTS_FOLDER = "projects";
+  const categories = [
+    ...new Set([
+      ...(await getTaxonomy(BLOG_FOLDER, "categories")),
+      ...(await getTaxonomy(PROJECTS_FOLDER, "categories")),
+    ]),
+  ];
 
   return categories.map((category) => {
     return {
@@ -23,9 +29,26 @@ const { category } = Astro.params;
 
 // get posts by category
 const BLOG_FOLDER = "blog";
+const PROJECTS_FOLDER = "projects";
 const posts = await getSinglePage(BLOG_FOLDER);
-const filterByCategories = taxonomyFilter(posts, "categories", category!);
-const sortedPosts = sortByDate(filterByCategories);
+const projects = await getSinglePage(PROJECTS_FOLDER);
+const filteredPosts = taxonomyFilter(posts, "categories", category!).map(
+  (entry) => ({
+    type: "blog",
+    entry,
+  }),
+);
+const filteredProjects = taxonomyFilter(projects, "categories", category!).map(
+  (entry) => ({
+    type: "projects",
+    entry,
+  }),
+);
+const getEntryTimestamp = (date?: Date) => (date ? date.valueOf() : 0);
+const sortedItems = [...filteredPosts, ...filteredProjects].sort(
+  (a, b) =>
+    getEntryTimestamp(b.entry.data.date) - getEntryTimestamp(a.entry.data.date),
+);
 ---
 
 <Base title={category}>
@@ -34,9 +57,13 @@ const sortedPosts = sortByDate(filterByCategories);
     <div class="container">
       <div class="row">
         {
-          sortedPosts.map((post) => (
+          sortedItems.map((item) => (
             <div class="mb-14 md:col-6 lg:col-4">
-              <BlogCard data={post} />
+              {item.type === "blog" ? (
+                <BlogCard data={item.entry} />
+              ) : (
+                <ProjectCard data={item.entry} basePath="projects" />
+              )}
             </div>
           ))
         }
