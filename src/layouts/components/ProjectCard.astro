@@ -10,6 +10,8 @@ interface Props {
     data: {
       title: string;
       image?: string;
+      thumbnail_image?: string;
+      thumbnail_dark_image?: string;
       dark_image?: string;
       date?: Date;
       categories?: string[];
@@ -22,9 +24,21 @@ interface Props {
 }
 
 const { data, basePath } = Astro.props;
-const { title, image, dark_image, date, categories, description, featured } =
-  data.data;
+const {
+  title,
+  image,
+  thumbnail_image,
+  thumbnail_dark_image,
+  dark_image,
+  date,
+  categories,
+  description,
+  featured,
+} = data.data;
 const href = `/${basePath}/${data.id}`;
+const cardImage = thumbnail_image ?? image;
+const cardDarkImage =
+  thumbnail_dark_image ?? (thumbnail_image ? undefined : dark_image);
 ---
 
 <article
@@ -34,12 +48,12 @@ const href = `/${basePath}/${data.id}`;
   ></a>
   <div class="relative z-20 pointer-events-none">
     {
-      image && (
+      cardImage && (
         <div class="mb-6 aspect-square overflow-hidden rounded">
           <ImageMod
             class="h-full w-full object-cover"
-            src={image}
-            darkSrc={dark_image}
+            src={cardImage}
+            darkSrc={cardDarkImage}
             alt={title}
             width={445}
             height={445}

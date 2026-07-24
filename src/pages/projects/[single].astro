@@ -32,9 +32,12 @@ const {
   categories,
   tags,
   show_image,
+  wide_image,
 } = project.data;
 
-const imageWrapperClass = "mx-auto mb-10 w-full md:w-1/2";
+const imageWrapperClass = wide_image
+  ? "mx-auto mb-10 w-full"
+  : "mx-auto mb-10 w-full md:w-1/2";
 ---
 
 <Base
