@@ -7,7 +7,7 @@ image: "/images/projects/dv_light.png"
 dark_image: "/images/projects/dv_dark.png"
 categories: ["Software", "Personal Projects"]
 tags: ["Dimensional Variable", "Developer Tools", "Rust", "Python"]
-featured: true
+featured: false
 draft: false
 ---
 
